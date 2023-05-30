@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: 1362cdee776bf2c428de4ee2f79b8da5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 60
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tower Construction_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eef2f7384a79b743b1af1e366cfbb13
+      internalID: -685784412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower Construction_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64587536a5fc3a449126c05386c16f2
+      internalID: 1589727075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower Construction_29
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69cf5314eea70b34d8f658deea575994
+      internalID: -1565896905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower Construction_30
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b17b7a5bc6a6774d9b97f4478f830da
+      internalID: -948900032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower Construction_31
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4f9b5b1795ab8489e34c0bd9dd77e0
+      internalID: -1903426379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower Construction_32
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 832
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34aa87c1596ae2b43b2a3846296a4434
+      internalID: -1454334409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tower Construction_39: -74496724
+      Tower Construction_46: -395425189
+      Tower Construction_60: 1758926285
+      Tower Construction_64: 1231679558
+      Tower Construction_104: -1119713512
+      Tower Construction_62: -520884928
+      Tower Construction_34: -338844328
+      Tower Construction_0: -423959177
+      Tower Construction_85: 881139403
+      Tower Construction_49: -796530583
+      Tower Construction_67: -867974178
+      Tower Construction_26: -841176368
+      Tower Construction_76: 844673140
+      Tower Construction_103: -1607159826
+      Tower Construction_6: 958201383
+      Tower Construction_52: 1786327693
+      Tower Construction_98: 205905552
+      Tower Construction_13: -1482550473
+      Tower Construction_50: -1245558770
+      Tower Construction_111: 1865678281
+      Tower Construction_96: -993913028
+      Tower Construction_23: -288185008
+      Tower Construction_101: 208530757
+      Tower Construction_43: 2005036505
+      Tower Construction_116: -1977564217
+      Tower Construction_5: -1366065495
+      Tower Construction_35: -607139252
+      Tower Construction_33: 1452994446
+      Tower Construction_53: 505340319
+      Tower Construction_72: -1968511516
+      Tower Construction_27: -685784412
+      Tower Construction_56: 149333922
+      Tower Construction_24: 2073655262
+      Tower Construction_99: -1893613797
+      Tower Construction_38: -1521516499
+      Tower Construction_68: 1123630023
+      Tower Construction_79: 1299404138
+      Tower Construction_82: -626070252
+      Tower Construction_19: 871822808
+      Tower Construction_1: -1388955679
+      Tower Construction_84: 129558773
+      Tower Construction_100: 103164375
+      Tower Construction_10: 272389728
+      Tower Construction_83: 1421335909
+      Tower Construction_110: -1299908246
+      Tower Construction_117: 206462618
+      Tower Construction_16: 729725090
+      Tower Construction_37: -573909079
+      Tower Construction_88: 1962169152
+      Tower Construction_89: -1081644509
+      Tower Construction_8: -1910862424
+      Tower Construction_22: 1221580907
+      Tower Construction_4: -539587751
+      Tower Construction_31: -1903426379
+      Tower Construction_63: -517547660
+      Tower Construction_87: 7133103
+      Tower Construction_21: -1638024421
+      Tower Construction_81: -1293360424
+      Tower Construction_59: 777189463
+      Tower Construction_70: 2091727950
+      Tower Construction_29: -1565896905
+      Tower Construction_45: 1303901344
+      Tower Construction_108: -1046525799
+      Tower Construction_92: 302161461
+      Tower Construction_66: -2022183560
+      Tower Construction_20: 1914530719
+      Tower Construction_78: -2020562675
+      Tower Construction_112: 712063095
+      Tower Construction_93: 991611493
+      Tower Construction_44: 1062692226
+      Tower Construction_113: -756860427
+      Tower Construction_71: 787063452
+      Tower Construction_18: 110872529
+      Tower Construction_54: 1565849814
+      Tower Construction_17: 1345341678
+      Tower Construction_15: 1294420989
+      Tower Construction_77: 811225921
+      Tower Construction_94: 161066771
+      Tower Construction_47: 697853887
+      Tower Construction_95: 1113776012
+      Tower Construction_36: 1156314127
+      Tower Construction_69: 81697598
+      Tower Construction_14: -55104165
+      Tower Construction_25: -1246616017
+      Tower Construction_102: -1036886394
+      Tower Construction_97: -1847706752
+      Tower Construction_57: 36677494
+      Tower Construction_106: 1462613725
+      Tower Construction_58: -1193421401
+      Tower Construction_61: -378613859
+      Tower Construction_107: -1213654636
+      Tower Construction_2: -158311788
+      Tower Construction_74: -1494892886
+      Tower Construction_75: 1185462067
+      Tower Construction_91: 238100213
+      Tower Construction_11: 475048592
+      Tower Construction_80: 169293460
+      Tower Construction_73: 1519427478
+      Tower Construction_41: -1080350238
+      Tower Construction_51: -2070447706
+      Tower Construction_40: 1732637424
+      Tower Construction_42: 1271210632
+      Tower Construction_9: -1022175666
+      Tower Construction_55: 1132797747
+      Tower Construction_32: -1454334409
+      Tower Construction_90: -164834904
+      Tower Construction_7: -437683636
+      Tower Construction_65: 191327555
+      Tower Construction_109: 1648646294
+      Tower Construction_28: 1589727075
+      Tower Construction_105: -600048610
+      Tower Construction_3: 221952369
+      Tower Construction_114: 1345591908
+      Tower Construction_48: -738393305
+      Tower Construction_115: 681567858
+      Tower Construction_30: -948900032
+      Tower Construction_12: 1634926033
+      Tower Construction_86: 1507946926
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
