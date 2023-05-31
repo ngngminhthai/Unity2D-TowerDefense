@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Gameplay.Units.Defenders
+﻿namespace Assets.Scripts.Gameplay.Units.Defenders
 {
-    internal class AOETower
+    public class AOETower : Tower
     {
+        void Start()
+        {
+
+            Damage = ConfigurationUtils.AOETowerDamage;
+            Cooldown = ManageInfor.AOETowerCoolDown;
+
+            InitializeTimer();
+
+        }
     }
 }

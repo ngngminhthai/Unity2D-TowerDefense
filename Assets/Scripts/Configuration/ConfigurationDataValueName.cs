@@ -1,12 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
+﻿/// <summary>
 /// Enumeration of the valid configuration data value names
 /// </summary>
 public enum ConfigurationDataValueName
 {
+    AOETowerDamage,
+    AOETowerCoolDown,
+    AOETowerDamagePerLevel,
+    ArcheryTowerDamage,
+    ArcheryTowerCoolDown,
+    ArcheryTowerDamagePerLevel,
+    MageTowerDamage,
+    MageTowerCoolDown,
+    MageTowerDamagePerLevel,
     TotalGameSeconds,
     BurgerMoveUnitsPerSecond,
     BearDamage,

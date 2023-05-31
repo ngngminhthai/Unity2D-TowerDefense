@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -122,10 +122,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_1
       rect:
         serializedVersion: 2
-        x: 27
-        y: 30
-        width: 42
-        height: 36
+        x: 29
+        y: 603
+        width: 37
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_2
       rect:
         serializedVersion: 2
-        x: 123
-        y: 29
-        width: 42
-        height: 37
+        x: 28
+        y: 507
+        width: 38
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_3
       rect:
         serializedVersion: 2
-        x: 219
-        y: 28
-        width: 42
-        height: 38
+        x: 28
+        y: 411
+        width: 38
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_4
       rect:
         serializedVersion: 2
-        x: 315
-        y: 28
-        width: 42
-        height: 38
+        x: 32
+        y: 318
+        width: 54
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_5
       rect:
         serializedVersion: 2
-        x: 414
-        y: 32
-        width: 36
-        height: 54
+        x: 32
+        y: 221
+        width: 34
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_6
       rect:
         serializedVersion: 2
-        x: 509
-        y: 32
-        width: 38
-        height: 34
+        x: 86
+        y: 235
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_7
       rect:
         serializedVersion: 2
-        x: 604
-        y: 32
-        width: 40
-        height: 34
+        x: 32
+        y: 124
+        width: 34
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: Tower 03 - Level 01 - Weapon_8
       rect:
         serializedVersion: 2
-        x: 699
-        y: 30
-        width: 42
-        height: 36
+        x: 30
+        y: 27
+        width: 36
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,6 +282,27 @@ TextureImporter:
       bones: []
       spriteID: 115c35b4d37c3b1478da59d91d3b4446
       internalID: 61578090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower 03 - Level 01 - Weapon_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 699
+        width: 36
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41d4ce24cf138d4086fd438e5fa109c
+      internalID: 2006195392
       vertices: []
       indices: 
       edges: []

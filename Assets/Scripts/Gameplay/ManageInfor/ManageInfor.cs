@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ManageInfor : MonoBehaviour
@@ -70,7 +68,7 @@ public class ManageInfor : MonoBehaviour
     public static float BansheeSpeedPer = 0.1f;
     // Harpy
     public static float HappyRange = 3f;
-    public static float HappyBaseHitPoints =20f;
+    public static float HappyBaseHitPoints = 20f;
     public static float HarpySelectedRange = 1.5f;
     public static float HarpyDamage = 5f;
     public static float HarpyDamagePer = 0.5f;
@@ -95,6 +93,25 @@ public class ManageInfor : MonoBehaviour
     public static float OgreDamagePer = 0.4f;
     public static float OgreHitPointPer = 0.6f;
     public static float OgreSpeedPer = 0.1f;
+
+    // Tower
+    public static float AOETowerDamage = 3f;
+    public static float AOETowerCoolDown = 1f;
+    public static float AOETowerDamagePerLevel = 1f;
+
+
+
+    public static float ArcheryTowerDamage = 2f;
+    public static float ArcheryTowerCoolDown = 0.5f;
+    public static float ArcheryTowerDamagePerLevel = 0.5f;
+
+
+    public static float MageTowerDamage = 4f;
+    public static float MageTowerCoolDown = 1.25f;
+    public static float MageTowerDamagePerLevel = 1.25f;
+
+
+
 
 
 
