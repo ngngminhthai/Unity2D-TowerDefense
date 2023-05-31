@@ -12,6 +12,8 @@ public class UnitSpawner : MonoBehaviour
     public const float HEIGHT_MAP = 6;
     public const float DELTA_TIME_PER_WAVE = 5;
 
+    Queue attackers = new Queue();   
+
     [SerializeField]
     GameObject prefabBanshee;
     [SerializeField]
@@ -20,8 +22,8 @@ public class UnitSpawner : MonoBehaviour
     GameObject prefabMinotaur;
     [SerializeField]
     GameObject prefabOrge;
-    [SerializeField]
-    TextMeshProUGUI countWave;
+    //[SerializeField]
+    //TextMeshProUGUI countWave;
     public int StrengthPerWave { get; set; }
 
     public int CountWave { get; set; }
@@ -29,11 +31,11 @@ public class UnitSpawner : MonoBehaviour
     public float AccumStrength { get; set; }
     public int TypeUnit { get; set; }
 
-    public float max_x = 28;
-    public float min_x = -28;
-    public float min_y = -14;
-    public float max_y = 14;
-    GameObject[] attackers;
+    public float max_x = 34f;
+    public float min_x = -26f;
+    public float min_y = -34f;
+    public float max_y = 16f;
+    //GameObject[] attackers;
     private float StrengthPerUnit;
     private GameObject Instance;
     private System.Random rand = new System.Random();
@@ -45,7 +47,7 @@ public class UnitSpawner : MonoBehaviour
     void Start()
     {
         CountWave = 1;
-        countWave.text = "Wave: " +CountWave;
+        //countWave.text = "Wave: " +CountWave;
         timer = gameObject.AddComponent<Timer>();
         timer.Duration = DELTA_TIME_PER_WAVE;
         StrengthPerWave = 80;
@@ -64,12 +66,14 @@ public class UnitSpawner : MonoBehaviour
 
     bool IsFinishWave()
     {
-        attackers = GameObject.FindGameObjectsWithTag("attackers");
-        if (attackers.Length > 0) return false;
-        else
-        {
-            return true;
-        }
+        if (attackers.Count == 0) return true;
+        return false;
+        //attackers = GameObject.FindGameObjectsWithTag("attackers");
+        //if (attackers.Length > 0) return false;
+        //else
+        //{
+        //    return true;
+        //}
     }
 
     void SpawnNewWave()
@@ -82,28 +86,32 @@ public class UnitSpawner : MonoBehaviour
             {
                 case 1:
                     GameObject Instance = GenerateUnit(prefabHarpy);
-                    Harpy harpy = Instance.GetComponent<Harpy>();
+                    attackers.Enqueue(Instance);
+					Harpy harpy = Instance.GetComponent<Harpy>();
                     harpy.level = level;
                     harpy.Start();
                     StrengthPerUnit = (harpy.Damage + harpy.HitPoints / 2) + (1 + harpy.Speed / 3);
                     break;
                 case 2:
                     GameObject Instance1 = GenerateUnit(prefabBanshee);
-                    Banshee banshee = Instance1.GetComponent<Banshee>();
+					attackers.Enqueue(Instance1);
+					Banshee banshee = Instance1.GetComponent<Banshee>();
                     banshee.level = level;
                     banshee.Start();
                     StrengthPerUnit = (banshee.Damage + banshee.HitPoints / 2) + (1 + banshee.Speed / 3);
                     break;
                 case 3:
                     GameObject Instance2 = GenerateUnit(prefabMinotaur);
-                    Monitor minotaur = Instance2.GetComponent<Monitor>();
+					attackers.Enqueue(Instance2);
+					Monitor minotaur = Instance2.GetComponent<Monitor>();
                     minotaur.level = level;
                     minotaur.Start();
                     StrengthPerUnit = (minotaur.Damage + minotaur.HitPoints / 2) + (1 + minotaur.Speed / 3);
                     break;
                 case 4:
                     GameObject Instance3 = GenerateUnit(prefabOrge);
-                    Ogre ogre = Instance3.GetComponent<Ogre>();
+					attackers.Enqueue(Instance3);
+					Ogre ogre = Instance3.GetComponent<Ogre>();
                     ogre.level = level;
                     ogre.Start();
                     StrengthPerUnit = (ogre.Damage + ogre.HitPoints / 2) + (1 + ogre.Speed / 3) + 5;
@@ -130,21 +138,25 @@ public class UnitSpawner : MonoBehaviour
     }
     public GameObject GenerateUnit(GameObject prefab)
     {
-        float randomX, randomY;
-        randomX = (float)(rand.NextDouble() * 52f - 26f);
-        if (randomX > 26f || randomX < -26f)
+	    //public float max_x = 28;
+	    //public float min_x = -28;
+	    //public float min_y = -14;
+	    //public float max_y = 14;
+	    float randomX, randomY;
+        randomX = (float)(rand.NextDouble() * 2 * max_x - max_x);
+        if (randomX > max_x || randomX < min_x)
         {
-            randomY = (float)(rand.NextDouble() * 24f - 12f);
+            randomY = (float)(rand.NextDouble() * (max_y-min_y) + (min_y));
         }
         else
         {
             if (rand.Next(2) == 0)
             {
-                randomY = (float)(rand.NextDouble() * (14f - 12f) + 12f);
+                randomY = (float)(rand.NextDouble() * 4f + 16f);
             }
             else
             {
-                randomY = (float)(rand.NextDouble() * (-12f + 14f) - 12f);
+                randomY = (float)(rand.NextDouble() * 2 - 22f);
             }
         }
         Vector2 position = new Vector2(randomX, randomY);
@@ -159,7 +171,7 @@ public class UnitSpawner : MonoBehaviour
             SpawnNewWave();
             level += 1;
             CountWave += 1;
-            countWave.text = "Wave: " + CountWave;
+            //countWave.text = "Wave: " + CountWave;
             StrengthPerWave = StrengthPerWave + 10 * (CountWave + 1);
             //             StrengthPerWave = StrengthPerWave + 10 * (CountWave + 2);
         }
