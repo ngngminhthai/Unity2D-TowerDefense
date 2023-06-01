@@ -57,14 +57,7 @@ public class BuiderMenuManager : MonoBehaviour
         canvas.gameObject.SetActive(false);
 
     }
-    public void BuyTowerArcher()
-    {
-        //Archery archy = GetComponent<Archery>();
-       // Gold.MinusGold(ManageInfor.ArcheryStrength);
-        Vector3 screenPosition = new Vector3(0, 0, 2);
-        //GameObject spaw = Instantiate<GameObject>(prefabArchery, screenPosition, Quaternion.identity);
-
-    }
+   
     public void Update()
     {
         goldText.text = "Gold:" + Gold.TotalGold;
@@ -93,7 +86,14 @@ public class BuiderMenuManager : MonoBehaviour
        
     }
     // Update is called once per frame
+    public void BuyTowerArcher()
+    {
+        //Archery archy = GetComponent<Archery>();
+        // Gold.MinusGold(ManageInfor.ArcheryStrength);
+        Vector3 screenPosition = new Vector3(0, 0, 2);
+        //GameObject spaw = Instantiate<GameObject>(prefabArchery, screenPosition, Quaternion.identity);
 
+    }
     public void BuyTowerMage()
     {
         //Gold.MinusGold(ManageInfor.WarriorStrength);

@@ -9,7 +9,7 @@ public class BuilderBehavior : MonoBehaviour
     Canvas canvas;
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
