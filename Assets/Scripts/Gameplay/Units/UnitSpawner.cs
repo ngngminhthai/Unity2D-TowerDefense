@@ -12,7 +12,7 @@ public class UnitSpawner : MonoBehaviour
     public const float HEIGHT_MAP = 6;
     public const float DELTA_TIME_PER_WAVE = 5;
 
-    Queue attackers = new Queue();   
+    Queue attackersQueue = new Queue();
 
     [SerializeField]
     GameObject prefabBanshee;
@@ -35,14 +35,13 @@ public class UnitSpawner : MonoBehaviour
     public float min_x = -26f;
     public float min_y = -34f;
     public float max_y = 16f;
-    //GameObject[] attackers;
+    GameObject[] attackers;
     private float StrengthPerUnit;
     private GameObject Instance;
     private System.Random rand = new System.Random();
     private bool isEndWave = false;
     private int level = 1;
     Timer timer;
-    Unit unit;
 
     void Start()
     {
@@ -66,14 +65,12 @@ public class UnitSpawner : MonoBehaviour
 
     bool IsFinishWave()
     {
-        if (attackers.Count == 0) return true;
-        return false;
-        //attackers = GameObject.FindGameObjectsWithTag("attackers");
-        //if (attackers.Length > 0) return false;
-        //else
-        //{
-        //    return true;
-        //}
+        attackers = GameObject.FindGameObjectsWithTag("attackers");
+        if (attackers.Length > 0) return false;
+        else
+        {
+            return true;
+        }
     }
 
     void SpawnNewWave()
@@ -86,7 +83,7 @@ public class UnitSpawner : MonoBehaviour
             {
                 case 1:
                     GameObject Instance = GenerateUnit(prefabHarpy);
-                    attackers.Enqueue(Instance);
+                    attackersQueue.Enqueue(Instance);
 					Harpy harpy = Instance.GetComponent<Harpy>();
                     harpy.level = level;
                     harpy.Start();
@@ -94,7 +91,7 @@ public class UnitSpawner : MonoBehaviour
                     break;
                 case 2:
                     GameObject Instance1 = GenerateUnit(prefabBanshee);
-					attackers.Enqueue(Instance1);
+					attackersQueue.Enqueue(Instance1);
 					Banshee banshee = Instance1.GetComponent<Banshee>();
                     banshee.level = level;
                     banshee.Start();
@@ -102,7 +99,7 @@ public class UnitSpawner : MonoBehaviour
                     break;
                 case 3:
                     GameObject Instance2 = GenerateUnit(prefabMinotaur);
-					attackers.Enqueue(Instance2);
+					attackersQueue.Enqueue(Instance2);
 					Monitor minotaur = Instance2.GetComponent<Monitor>();
                     minotaur.level = level;
                     minotaur.Start();
@@ -110,12 +107,11 @@ public class UnitSpawner : MonoBehaviour
                     break;
                 case 4:
                     GameObject Instance3 = GenerateUnit(prefabOrge);
-					attackers.Enqueue(Instance3);
+					attackersQueue.Enqueue(Instance3);
 					Ogre ogre = Instance3.GetComponent<Ogre>();
                     ogre.level = level;
                     ogre.Start();
                     StrengthPerUnit = (ogre.Damage + ogre.HitPoints / 2) + (1 + ogre.Speed / 3) + 5;
-                    //Debug.Log(ogre.Damage);
                     break;
                 default: break;
             }
