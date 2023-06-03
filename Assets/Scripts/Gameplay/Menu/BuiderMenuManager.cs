@@ -1,6 +1,6 @@
+using Assets.Scripts.Gameplay.Units.Defenders;
+using Assets.Scripts.Gameplay.Units.Towers;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +25,7 @@ public class BuiderMenuManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI priceTowerAOE;
     //level
-  
+
 
     //btn
     [SerializeField]
@@ -40,11 +40,23 @@ public class BuiderMenuManager : MonoBehaviour
     //[SerializeField]
     //Button btnUpdateWarrior;
 
+    [SerializeField]
+    GameObject prefabAOETower;
+
+    private TowerFactory _towerFactory;
+
+
+    public static Vector2 buildPosition;
+    public static GameObject destroyBuilderBase;
+
     void Start()
     {
+        _towerFactory = new TowerFactory();
+
+
         priceTowerArchery.text = "Price: 1 ";
-        priceTowerMage.text = "Price: 1"  ;
-        priceTowerAOE.text = "Price: 1"  ;
+        priceTowerMage.text = "Price: 1";
+        priceTowerAOE.text = "Price: 1";
 
         goldText.text = "Gold:" + Gold.TotalGold;
         canvas.gameObject.SetActive(false);
@@ -57,7 +69,7 @@ public class BuiderMenuManager : MonoBehaviour
         canvas.gameObject.SetActive(false);
 
     }
-   
+
     public void Update()
     {
         goldText.text = "Gold:" + Gold.TotalGold;
@@ -83,7 +95,7 @@ public class BuiderMenuManager : MonoBehaviour
         //    btnBuyArchery.interactable = true;
         //    btnUpdateWarrior.interactable = true;
         //}
-       
+
     }
     // Update is called once per frame
     public void BuyTowerArcher()
@@ -102,9 +114,17 @@ public class BuiderMenuManager : MonoBehaviour
     }
     public void BuyTowerAOE()
     {
-        //Gold.MinusGold(ManageInfor.WarriorStrength);
-        //Vector3 screenPosition = new Vector3(0, 0, 2);
-        //GameObject spaw = Instantiate<GameObject>(prefabWarrior, screenPosition, Quaternion.identity);
+        Tower tower = _towerFactory.GetTower("AOE");
+        tower.Create(buildPosition, prefabAOETower);
+        DestroyBuilderBase();
+    }
+
+    public void DestroyBuilderBase()
+    {
+        if (destroyBuilderBase != null)
+        {
+            Destroy(destroyBuilderBase);
+        }
     }
 
     public int RoundFloat(float value)

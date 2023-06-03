@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Units.Defenders
 {
-    public class Tower : MonoBehaviour
+    public abstract class Tower : MonoBehaviour
     {
         Quaternion targetRotation;
 
@@ -28,29 +28,12 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
             cooldownTimerBullet = gameObject.AddComponent<Timer>();
         }
 
-        void Start()
-        {
-
-            //cooldownTimerBullet = gameObject.AddComponent<Timer>();
-        }
-
         protected void Initialize()
         {
             var range = gameObject.AddComponent<CircleCollider2D>();
             range.radius = (float)Range;
             range.isTrigger = true;
             //cooldownTimerBullet = gameObject.AddComponent<Timer>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
-
-        public virtual void Initialize(float damageMultiplier)
-        {
-
         }
 
 
@@ -104,9 +87,9 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                             createdBullet.transform.rotation = targetRotation;
                             createdBullet.GetComponent<TowerAttack>().Damage = (float)Damage;
                             createdBullet.GetComponent<TowerAttack>().sourceDirection = gameObject.transform.position;
-                            createdBullet.GetComponent<TowerAttack>().targetDirection = collision.gameObject.transform.position;
-                            createdBullet.GetComponent<TowerAttack>().targetGameObject = collision.gameObject.GetComponent<Unit>();
-                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = collision.gameObject;
+                            createdBullet.GetComponent<TowerAttack>().targetDirection = closestCollider.gameObject.transform.position;
+                            createdBullet.GetComponent<TowerAttack>().targetGameObject = closestCollider.gameObject.GetComponent<Unit>();
+                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;
 
                             createdBullet.GetComponent<Rigidbody2D>().AddForce((closestCollider.gameObject.transform.position - gameObject.transform.position).normalized * 15f, ForceMode2D.Impulse);
                         }
@@ -114,6 +97,9 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                 }
             }
         }
+
+
+        public abstract void Create(Vector2 buildPosition, GameObject gameObject);
 
     }
 }
