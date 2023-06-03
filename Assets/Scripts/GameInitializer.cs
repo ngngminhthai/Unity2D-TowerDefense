@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Initializes the game
@@ -10,10 +8,17 @@ public class GameInitializer : MonoBehaviour
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
+
     void Start()
     {
-		EventManager.Initialize();
-        ConfigurationUtils.Initialize();
+        EventManager.Initialize();
+        //ConfigurationUtils.Initialize();
         DifficultyUtils.Initialize();
-	}
+    }
+
+    private void Awake()
+    {
+        ConfigurationUtils.Initialize();
+
+    }
 }

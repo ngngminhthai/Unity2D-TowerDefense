@@ -420,6 +420,7 @@ public class ConfigurationData
     void SetDefaultValues()
     {
         values.Clear();
+        values.Add(ConfigurationDataValueName.AOETowerDamage, 10);
         values.Add(ConfigurationDataValueName.TotalGameSeconds, 30);
         values.Add(ConfigurationDataValueName.BurgerMoveUnitsPerSecond, 5);
         values.Add(ConfigurationDataValueName.BearDamage, 10);

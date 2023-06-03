@@ -22,14 +22,19 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
         public double Cooldown { get => cooldown; set => cooldown = value; }
 
 
+        private void Awake()
+        {
+            cooldownTimerBullet = gameObject.AddComponent<Timer>();
+        }
+
         void Start()
         {
-
+            //cooldownTimerBullet = gameObject.AddComponent<Timer>();
         }
 
         protected void InitializeTimer()
         {
-            cooldownTimerBullet = gameObject.AddComponent<Timer>();
+            //cooldownTimerBullet = gameObject.AddComponent<Timer>();
         }
 
         // Update is called once per frame
