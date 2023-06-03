@@ -39,6 +39,7 @@ public class MenuUpdate : MonoBehaviour
     {
         //Vector3 oldObjectPosition = transform.position;
         //Quaternion oldObjectRotation = transform.rotation;
+        Debug.Log("Innnnnnnn");
         LoadShop();
     }
     public void ExitMenu()
