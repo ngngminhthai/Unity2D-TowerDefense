@@ -28,9 +28,25 @@ public class ConfigurationData
         get { return (double)values[ConfigurationDataValueName.ArcheryTowerDamage]; }
     }
 
+    public double ArcheryTowerCoolDown
+    {
+        get
+        {
+            return (double)values[ConfigurationDataValueName.ArcheryTowerCoolDown];
+        }
+    }
+
     public double MageTowerDamage
     {
         get { return (double)values[ConfigurationDataValueName.MageTowerDamage]; }
+    }
+
+    public double MageTowerCoolDown
+    {
+        get
+        {
+            return (double)values[ConfigurationDataValueName.MageTowerCoolDown];
+        }
     }
 
     public double AOETowerDamage
@@ -38,6 +54,21 @@ public class ConfigurationData
         get { return (double)values[ConfigurationDataValueName.AOETowerDamage]; }
     }
 
+    public double AOETowerCoolDown
+    {
+        get
+        {
+            return (double)values[ConfigurationDataValueName.AOETowerCoolDown];
+        }
+    }
+
+    public double AOETowerRange
+    {
+        get
+        {
+            return (double)values[ConfigurationDataValueName.AOETowerRange];
+        }
+    }
 
 
     public int TotalGameSeconds
@@ -420,7 +451,17 @@ public class ConfigurationData
     void SetDefaultValues()
     {
         values.Clear();
-        values.Add(ConfigurationDataValueName.AOETowerDamage, 10);
+        values.Add(ConfigurationDataValueName.AOETowerDamage, 5);
+        values.Add(ConfigurationDataValueName.AOETowerCoolDown, 0.8f);
+        values.Add(ConfigurationDataValueName.AOETowerDamagePerLevel, 1);
+        values.Add(ConfigurationDataValueName.AOETowerRange, 7);
+
+        values.Add(ConfigurationDataValueName.ArcheryTowerDamage, 10);
+        values.Add(ConfigurationDataValueName.ArcheryTowerCoolDown, 0.8f);
+
+        values.Add(ConfigurationDataValueName.MageTowerDamage, 20);
+        values.Add(ConfigurationDataValueName.MageTowerCoolDown, 1);
+
         values.Add(ConfigurationDataValueName.TotalGameSeconds, 30);
         values.Add(ConfigurationDataValueName.BurgerMoveUnitsPerSecond, 5);
         values.Add(ConfigurationDataValueName.BearDamage, 10);

@@ -6,12 +6,20 @@ public enum ConfigurationDataValueName
     AOETowerDamage,
     AOETowerCoolDown,
     AOETowerDamagePerLevel,
+    AOETowerRange,
+
     ArcheryTowerDamage,
     ArcheryTowerCoolDown,
     ArcheryTowerDamagePerLevel,
+    ArcheryTowerRange,
+
+
     MageTowerDamage,
     MageTowerCoolDown,
     MageTowerDamagePerLevel,
+    MageTowerRange,
+
+
     TotalGameSeconds,
     BurgerMoveUnitsPerSecond,
     BearDamage,

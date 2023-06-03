@@ -20,12 +20,36 @@ public static class ConfigurationUtils
         }
     }
 
+    public static double AOETowerCoolDown
+    {
+        get
+        {
+            return configurationData.AOETowerCoolDown;
+        }
+    }
+
+    public static double AOETowerRange
+    {
+        get
+        {
+            return configurationData.AOETowerRange;
+        }
+    }
+
 
     public static double ArcheryTowerDamage
     {
         get
         {
             return configurationData.ArcheryTowerDamage;
+        }
+    }
+
+    public static double ArcheryTowerCoolDown
+    {
+        get
+        {
+            return configurationData.ArcheryTowerCoolDown;
         }
     }
 
@@ -37,6 +61,13 @@ public static class ConfigurationUtils
         }
     }
 
+    public static double MageTowerCoolDown
+    {
+        get
+        {
+            return configurationData.MageTowerCoolDown;
+        }
+    }
 
 
     /// <summary>

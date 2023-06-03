@@ -6,9 +6,10 @@
         {
 
             Damage = ConfigurationUtils.AOETowerDamage;
-            Cooldown = ManageInfor.AOETowerCoolDown;
+            Cooldown = ConfigurationUtils.AOETowerCoolDown;
+            Range = ConfigurationUtils.AOETowerRange;
 
-            InitializeTimer();
+            Initialize();
 
         }
     }

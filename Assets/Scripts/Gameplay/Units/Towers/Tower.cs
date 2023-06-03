@@ -17,10 +17,11 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         private double damage;
         private double cooldown;
+        private double range;
 
         public double Damage { get => damage; set => damage = value; }
         public double Cooldown { get => cooldown; set => cooldown = value; }
-
+        public double Range { get => range; set => range = value; }
 
         private void Awake()
         {
@@ -29,11 +30,15 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         void Start()
         {
+
             //cooldownTimerBullet = gameObject.AddComponent<Timer>();
         }
 
-        protected void InitializeTimer()
+        protected void Initialize()
         {
+            var range = gameObject.AddComponent<CircleCollider2D>();
+            range.radius = (float)Range;
+            range.isTrigger = true;
             //cooldownTimerBullet = gameObject.AddComponent<Timer>();
         }
 

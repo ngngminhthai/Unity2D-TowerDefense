@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Gameplay.Units.Defenders
+﻿namespace Assets.Scripts.Gameplay.Units.Defenders
 {
-    internal class ArcheryTower
+    public class ArcheryTower : Tower
     {
+        private void Start()
+        {
+            Damage = ConfigurationUtils.ArcheryTowerDamage;
+            Cooldown = ConfigurationUtils.ArcheryTowerCoolDown;
+        }
     }
 }
