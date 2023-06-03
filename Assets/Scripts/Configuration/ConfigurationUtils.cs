@@ -69,6 +69,14 @@ public static class ConfigurationUtils
         }
     }
 
+    public static double MageTowerRange
+    {
+        get
+        {
+            return configurationData.MageTowerRange;
+        }
+    }
+
 
     /// <summary>
     /// Gets the number of seconds in a game
