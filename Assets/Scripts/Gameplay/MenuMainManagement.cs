@@ -69,7 +69,7 @@ public class MenuMainManagement : MonoBehaviour
         // Code moi  
         List<ObjectSave> objectSaves = new List<ObjectSave>();
         GameObject[] list = GameObject.FindGameObjectsWithTag("defenders");
-        Tower tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
+        HeadQuarter tower = GameObject.FindGameObjectWithTag("tower").GetComponent<HeadQuarter>();
         ObjectSaveTower objectSaveTower = new ObjectSaveTower { Health = tower.HitPoints };
 
         for (int i = 0; i < list.Length; i++)

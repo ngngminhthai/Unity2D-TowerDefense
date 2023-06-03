@@ -33,7 +33,7 @@ public class LoadGameManager : MonoBehaviour
 
         // Instantiate Tower with saved health
         GameObject towerObject = GameObject.FindGameObjectWithTag("tower");
-        Tower tower = towerObject.GetComponent<Tower>();
+        HeadQuarter tower = towerObject.GetComponent<HeadQuarter>();
         tower.HitPoints = objectSaveTower.Health;
 
         foreach (ObjectSave obj in objectSaves)

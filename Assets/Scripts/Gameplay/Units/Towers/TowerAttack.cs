@@ -1,12 +1,15 @@
+﻿using Assets.Scripts.Gameplay.Units.Defenders;
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class TowerAttack : MonoBehaviour
 {
     public float Range { get; set; }
 
     public Vector2 sourceDirection;
 
     public Vector2 targetDirection;
+
+    public GameObject targetGameObjectPrefab;
 
     public Unit targetGameObject;
     public float Damage { get; set; }
@@ -45,13 +48,14 @@ public class RangedAttack : MonoBehaviour
     private void Update()
     {
         Debug.Log(Vector2.Distance(transform.position, targetDirection));
-        if (Vector2.Distance(transform.position, targetDirection) < 0.1)
+        if (Vector2.Distance(transform.position, targetDirection) < 1)
         {
             if (targetGameObject != null)
             {
                 targetGameObject.GetComponent<Unit>().TakeDamage(Damage);
 
             }
+            Tower.colliders.Remove(targetGameObjectPrefab);
             Destroy(gameObject);
         }
     }

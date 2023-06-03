@@ -16,7 +16,7 @@ namespace Assets.Scripts.Gameplay.Units
             //check if towwer
             if (other.CompareTag("tower"))
             {
-                Tower enemy = other.GetComponent<Tower>();
+                HeadQuarter enemy = other.GetComponent<HeadQuarter>();
                 Attack(enemy);
                 isAttack = true;
             }
@@ -25,7 +25,7 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 // Debug.Log("Ok");
                 AgentMoventMentMonster agent = gameObject.GetComponent<AgentMoventMentMonster>();
-            //    Debug.Log(HitPoints + "end2");
+                //    Debug.Log(HitPoints + "end2");
                 // trien khai cach 1 : target luon la currentTarget ( Cham thang nao thi duoi theo danh cho chet bang dc )
                 if (HitPoints > 0f)
                 {
@@ -49,7 +49,7 @@ namespace Assets.Scripts.Gameplay.Units
                 // Đủ tầm đánh mới Stop 
                 if (Vector2.Distance(transform.position, currentTarget.transform.position) <= attackRange)
                 {
-                   // Debug.Log(HitPoints + "abcde");
+                    // Debug.Log(HitPoints + "abcde");
                     // Debug.Log("Da Dung");
                     if (HitPoints > 0f)
                     {
@@ -66,7 +66,8 @@ namespace Assets.Scripts.Gameplay.Units
                 if (HitPoints > 0f)
                 {
                     float threshold = 0.1f;
-                    if(agent.tower != null) { 
+                    if (agent.tower != null)
+                    {
                         Vector3 FlipDirection = agent.tower.transform.position - transform.position;
                         float dotProduct = Vector3.Dot(FlipDirection, transform.right);
                         if (dotProduct < -threshold)
@@ -78,9 +79,9 @@ namespace Assets.Scripts.Gameplay.Units
                             transform.localScale = new Vector3(1, 1, 1);
                         }
                     }
-                  //  Debug.Log(HitPoints + "end + " + isAttack);
+                    //  Debug.Log(HitPoints + "end + " + isAttack);
                     isAttack = false;
-                   // Debug.Log(HitPoints + "end + " + isAttack);
+                    // Debug.Log(HitPoints + "end + " + isAttack);
                     agent.ContinueMoving();
                 }
             }
@@ -104,13 +105,13 @@ namespace Assets.Scripts.Gameplay.Units
                 if (defender != null && defender == currentTarget)
                 {
                     // Stop attacking the current target
-                  //  Debug.Log("Out");
-                   // Debug.Log(HitPoints);
+                    //  Debug.Log("Out");
+                    // Debug.Log(HitPoints);
                     // Neu Defender move khoi Attracker thi set lai target den vi tri Defender vua move
                     AgentMoventMentMonster agent = gameObject.GetComponent<AgentMoventMentMonster>();
                     if (HitPoints > 0f)
                     {
-                      //  Debug.Log(HitPoints + "acddddd");
+                        //  Debug.Log(HitPoints + "acddddd");
                         agent.SetTargetPosition(currentTarget.gameObject);
                         agent.ContinueMoving();
                         isAttack = false;
@@ -130,7 +131,7 @@ namespace Assets.Scripts.Gameplay.Units
                 //Debug.Log(target);
                 base.Attack(target);
             }
-            Tower tower = target as Tower;
+            HeadQuarter tower = target as HeadQuarter;
             if (tower != null)
             {
                 base.Attack(tower);

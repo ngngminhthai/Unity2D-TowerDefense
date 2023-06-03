@@ -1,7 +1,6 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tower : Unit
+public class HeadQuarter : Unit
 {
 
 
@@ -12,7 +11,7 @@ public class Tower : Unit
         healthBar.SetMaxHealth(HitPoints);
     }
 
-    public Tower(int level) : base(level)
+    public HeadQuarter(int level) : base(level)
     {
         Level = level;
     }
@@ -40,7 +39,7 @@ public class Tower : Unit
     {
         // Destroy the game object
         Destroy(gameObject);
-       
+
     }
 
     //public virtual void LevelUp()
