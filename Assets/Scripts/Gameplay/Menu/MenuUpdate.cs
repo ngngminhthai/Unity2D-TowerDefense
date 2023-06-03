@@ -7,6 +7,15 @@ public class MenuUpdate : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     Canvas canvas;
+
+    [SerializeField]
+    GameObject towerLevel02;
+
+    [SerializeField]
+    GameObject towerLevel03;
+
+    [SerializeField]
+    int currentLevel; 
     void Start()
     {
         canvas.gameObject.SetActive(false);
@@ -36,5 +45,14 @@ public class MenuUpdate : MonoBehaviour
     {
         canvas.gameObject.SetActive(false);
 
+    }
+    public void UpdateMenu()
+    {
+        Debug.Log("In");
+        if(currentLevel == 1)
+            Instantiate(towerLevel02, transform.position, transform.rotation);
+        else 
+            Instantiate(towerLevel03, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
