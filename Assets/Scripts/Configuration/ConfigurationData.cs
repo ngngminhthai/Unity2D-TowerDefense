@@ -49,6 +49,14 @@ public class ConfigurationData
         }
     }
 
+    public double MageTowerRange
+    {
+        get
+        {
+            return values[ConfigurationDataValueName.MageTowerRange]; 
+        }
+    }
+
     public double AOETowerDamage
     {
         get { return (double)values[ConfigurationDataValueName.AOETowerDamage]; }
@@ -461,6 +469,8 @@ public class ConfigurationData
 
         values.Add(ConfigurationDataValueName.MageTowerDamage, 20);
         values.Add(ConfigurationDataValueName.MageTowerCoolDown, 1);
+        values.Add(ConfigurationDataValueName.MageTowerDamagePerLevel, 1);
+        values.Add(ConfigurationDataValueName.MageTowerRange, 6);
 
         values.Add(ConfigurationDataValueName.TotalGameSeconds, 30);
         values.Add(ConfigurationDataValueName.BurgerMoveUnitsPerSecond, 5);
