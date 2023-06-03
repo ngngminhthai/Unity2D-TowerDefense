@@ -118,7 +118,7 @@ public class ManageInfor : MonoBehaviour
 
     public static void Reset()
     {
-        Gold.TotalGold = 100;
+        //Gold.TotalGold = 100;
 
         ArcheryDamage = 7f;
         ArcheryHitPoint = 40;

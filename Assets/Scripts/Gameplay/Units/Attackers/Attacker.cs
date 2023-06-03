@@ -140,16 +140,16 @@ namespace Assets.Scripts.Gameplay.Units
 
         protected override void Die()
         {
-            isAttack = false;
-            // If the current target dies, stop attacking it
-            if (currentTarget != null && currentTarget.HitPoints <= 0f)
-            {
-                currentTarget = null;
-            }
-            float value = Strength2();
-            Gold.PlusGold(value);
+            //isAttack = false;
+            //// If the current target dies, stop attacking it
+            //if (currentTarget != null && currentTarget.HitPoints <= 0f)
+            //{
+            //    currentTarget = null;
+            //}
+            //float value = Strength2();
+            //Gold.PlusGold(value);
 
-            base.Die();
+            //base.Die();
 
 
 

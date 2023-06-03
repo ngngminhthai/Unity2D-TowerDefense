@@ -14,15 +14,15 @@ public class BuilderBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        canvas.gameObject.SetActive(false);
     }
     public void LoadShop()
     {
         if (!canvas.gameObject.activeSelf)
         {
             canvas.gameObject.SetActive(true);
-            BuiderMenuManager.buildPosition = gameObject.transform.position;
-            BuiderMenuManager.destroyBuilderBase = gameObject;
+            //BuiderMenuManager.buildPosition = gameObject.transform.position;
+            //BuiderMenuManager.destroyBuilderBase = gameObject;
         }
 
     }

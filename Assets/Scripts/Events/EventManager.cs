@@ -16,6 +16,8 @@ public static class EventManager
 	static Dictionary<EventName, List<UnityAction<int>>> listeners =
 		new Dictionary<EventName, List<UnityAction<int>>>();
 
+
+	
 	#endregion
 
 	#region Public methods
@@ -48,8 +50,9 @@ public static class EventManager
 	/// <param name="invoker">invoker</param>
 	public static void AddInvoker(EventName eventName, IntEventInvoker invoker)
     {
-		// add listeners to new invoker and add new invoker to dictionary
-		foreach (UnityAction<int> listener in listeners[eventName])
+		
+        // add listeners to new invoker and add new invoker to dictionary
+        foreach (UnityAction<int> listener in listeners[eventName])
         {
 			invoker.AddListener(eventName, listener);
 		}
