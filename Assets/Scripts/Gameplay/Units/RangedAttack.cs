@@ -44,7 +44,7 @@ public class RangedAttack : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Vector2.Distance(transform.position, targetDirection));
+        // Debug.Log(Vector2.Distance(transform.position, targetDirection));
         if (Vector2.Distance(transform.position, targetDirection) < 0.1)
         {
             if (targetGameObject != null)

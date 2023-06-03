@@ -47,11 +47,12 @@ public class TowerAttack : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Vector2.Distance(transform.position, targetDirection));
+        // Debug.Log(Vector2.Distance(transform.position, targetDirection));
         if (Vector2.Distance(transform.position, targetDirection) < 1)
         {
             if (targetGameObject != null)
             {
+                Debug.Log(Damage);
                 targetGameObject.GetComponent<Unit>().TakeDamage(Damage);
 
             }
