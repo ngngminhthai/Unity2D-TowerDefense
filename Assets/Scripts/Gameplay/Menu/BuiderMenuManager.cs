@@ -55,10 +55,12 @@ public class BuiderMenuManager : IntEventInvoker
     {
 
 
-   
 
 
-    
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+
+
 
 
         // goldText.text = "Gold:" + Gold.TotalGold;
@@ -110,6 +112,7 @@ public class BuiderMenuManager : IntEventInvoker
     // Update is called once per frame
     public void BuyTowerArcher()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Archery");
         tower.Create(buildPosition, prefabArcheryTower);
         DestroyBuilderBase();
@@ -117,6 +120,7 @@ public class BuiderMenuManager : IntEventInvoker
     }
     public void BuyTowerMage()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Mage");
         tower.Create(buildPosition, prefabMageTower);
         DestroyBuilderBase();

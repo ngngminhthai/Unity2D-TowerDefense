@@ -6,7 +6,12 @@ namespace Assets.Scripts.Gameplay.Units
     {
         private Defender currentTarget;
 
+        public void Awake()
+        {
 
+            unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+            EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+        }
         public Attacker(int level) : base(level)
         {
         }
@@ -150,7 +155,8 @@ namespace Assets.Scripts.Gameplay.Units
             //Gold.PlusGold(value);
 
             //base.Die();
-
+            unityEvents[EventName.GoldChangeEvent].Invoke(100);
+            Debug.Log("attackerdie");
 
 
         }
