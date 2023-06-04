@@ -16,14 +16,14 @@ public static class EventManager
 	static Dictionary<EventName, List<UnityAction<int>>> listeners =
 		new Dictionary<EventName, List<UnityAction<int>>>();
 
-	#endregion
+    #endregion
 
-	#region Public methods
+    #region Public methods
 
-	/// <summary>
-	/// Initializes the event manager
-	/// </summary>
-	public static void Initialize()
+    /// <summary>
+    /// Initializes the event manager
+    /// </summary>
+    public static void Initialize()
     {
 		// create empty lists for all the dictionary entries
 		foreach (EventName name in Enum.GetValues(typeof(EventName)))
@@ -82,5 +82,10 @@ public static class EventManager
 		invokers[eventName].Remove(invoker);
 	}
 
-	#endregion
+
+
+
+  
+
+    #endregion
 }

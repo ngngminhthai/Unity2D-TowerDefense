@@ -10,7 +10,7 @@ public enum EventName
 	GameStartedEvent,
 	GameOverEvent,
     GoldChangeEvent,
-
+	AttackerDie,
     HealthChangedEvent,
 	PointsAddedEvent,
 	TimerChangedEvent,

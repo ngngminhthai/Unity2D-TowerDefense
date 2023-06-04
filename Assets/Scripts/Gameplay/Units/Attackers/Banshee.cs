@@ -12,9 +12,13 @@ public class Banshee : Attacker
 
     public Animator animator;
     public int level;
+ 
     // Start is called before the first frame update
     public void Start()
     {
+        unityEvents = new Dictionary<EventName, UnityEngine.Events.UnityEvent<int>>();
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         AttackRange = ManageInfor.BansheeRange;
         SelectedRange = ManageInfor.BansheeSelectedRange;
        // Debug.Log("Banshee: " + AttackRange);
@@ -51,5 +55,16 @@ public class Banshee : Attacker
           
 
         }
+    }
+    protected override void Die()
+    {
+
+
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
+        base.Die();
+        // Gold.PlusGold(value);
+
+
+
     }
 }

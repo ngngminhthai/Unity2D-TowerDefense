@@ -16,13 +16,19 @@ public class Monitor : Attacker
         animator.SetBool("isAttack", false);
     }
 
+  
     public void Start()
     {
+        unityEvents = new Dictionary<EventName, UnityEngine.Events.UnityEvent<int>>();
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         Initialize();
+       
     }
 
     private void Initialize()
     {
+
         AttackRange = ManageInfor.MonitorRange;
         SelectedRange = ManageInfor.MonitorSelectedRange;
         if (level == null)
@@ -58,5 +64,16 @@ public class Monitor : Attacker
     {
         animator.SetBool("isAttack", false);
     }
-   
+
+    protected override void Die()
+    {
+
+
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
+        base.Die();
+        // Gold.PlusGold(value);
+
+
+
+    }
 }
