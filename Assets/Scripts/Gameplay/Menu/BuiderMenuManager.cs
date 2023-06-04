@@ -1,11 +1,15 @@
+
 using Assets.Scripts.Gameplay.Units.Defenders;
 using Assets.Scripts.Gameplay.Units.Towers;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class BuiderMenuManager : MonoBehaviour
+public class BuiderMenuManager : IntEventInvoker
 {
     [SerializeField]
     TextMeshProUGUI goldText;
@@ -39,34 +43,35 @@ public class BuiderMenuManager : MonoBehaviour
     //Button btnUpdateArchery;
     //[SerializeField]
     //Button btnUpdateWarrior;
-
-    [SerializeField]
-    GameObject prefabAOETower;
-
     [SerializeField]
     GameObject prefabMageTower;
 
     [SerializeField]
     GameObject prefabArcheryTower;
-
-
     private TowerFactory _towerFactory;
-
-
     public static Vector2 buildPosition;
     public static GameObject destroyBuilderBase;
+    private void Awake()
+    {
 
+
+
+
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+
+
+
+
+        // goldText.text = "Gold:" + Gold.TotalGold;
+        canvas.gameObject.SetActive(false);
+    }
     void Start()
     {
-        _towerFactory = new TowerFactory();
-
-
         priceTowerArchery.text = "Price: 1 ";
         priceTowerMage.text = "Price: 1";
         priceTowerAOE.text = "Price: 1";
 
-        goldText.text = "Gold:" + Gold.TotalGold;
-        canvas.gameObject.SetActive(false);
 
 
     }
@@ -79,7 +84,7 @@ public class BuiderMenuManager : MonoBehaviour
 
     public void Update()
     {
-        goldText.text = "Gold:" + Gold.TotalGold;
+        //goldText.text = "Gold:" + Gold.TotalGold;
 
         //if (Gold.TotalGold < ManageInfor.ArcheryStrength)
         //{
@@ -107,6 +112,7 @@ public class BuiderMenuManager : MonoBehaviour
     // Update is called once per frame
     public void BuyTowerArcher()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Archery");
         tower.Create(buildPosition, prefabArcheryTower);
         DestroyBuilderBase();
@@ -114,17 +120,18 @@ public class BuiderMenuManager : MonoBehaviour
     }
     public void BuyTowerMage()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Mage");
         tower.Create(buildPosition, prefabMageTower);
         DestroyBuilderBase();
     }
     public void BuyTowerAOE()
     {
-        Tower tower = _towerFactory.GetTower("AOE");
-        tower.Create(buildPosition, prefabAOETower);
-        DestroyBuilderBase();
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
+        //Gold.MinusGold(ManageInfor.WarriorStrength);
+        //Vector3 screenPosition = new Vector3(0, 0, 2);
+        //GameObject spaw = Instantiate<GameObject>(prefabWarrior, screenPosition, Quaternion.identity);
     }
-
     public void DestroyBuilderBase()
     {
         if (destroyBuilderBase != null)
@@ -132,7 +139,6 @@ public class BuiderMenuManager : MonoBehaviour
             Destroy(destroyBuilderBase);
         }
     }
-
     public int RoundFloat(float value)
     {
 

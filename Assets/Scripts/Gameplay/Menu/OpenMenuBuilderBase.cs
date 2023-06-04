@@ -1,6 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OpenMenuBase : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class OpenMenuBase : MonoBehaviour
     Canvas canvas;
     void Start()
     {
-        
+       
     }
     public void LoadShop()
     {

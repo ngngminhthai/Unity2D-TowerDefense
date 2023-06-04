@@ -126,7 +126,7 @@ namespace Assets.Scripts.Gameplay.Units
         protected override void Die()
         {
             float value = StrengthGold();
-            Gold.PlusGold(value);
+           // Gold.PlusGold(value);
             Destroy(gameObject);
         }
 

@@ -7,9 +7,11 @@ using UnityEngine;
 /// </summary>
 public enum EventName
 {
-	GameStartedEvent,
-	GameOverEvent,
-	HealthChangedEvent,
-	PointsAddedEvent,
-	TimerChangedEvent
+    GameStartedEvent, 
+    GameOverEvent,
+    GoldChangeEvent,
+    HealthChangedEvent,
+    PointsAddedEvent,
+    TimerChangedEvent,
+    
 }
