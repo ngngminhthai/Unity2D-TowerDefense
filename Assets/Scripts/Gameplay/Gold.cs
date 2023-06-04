@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class Gold : MonoBehaviour
+public class Gold : IntEventInvoker
 {
     int totalGold;
     public int TotalGold
@@ -15,26 +15,29 @@ public class Gold : MonoBehaviour
 
 
     // GoldChangeEvent goldChange = new GoldChangeEvent();
-    private void Awake()
+
+    void Start()
     {
 
         totalGold = 100;
 
         EventManager.AddListener(EventName.GoldChangeEvent, PlusGold);
-    }
-
-    void Start()
-    {
-
-
-
+        
+        
+        
+        unityEvents.Add(EventName.CheckGoldEvent, new CheckGoldEvent());
+        EventManager.AddInvoker(EventName.CheckGoldEvent, this);
     }
 
     public void PlusGold(int value)
     {
         //int myInt = (int)Math.Round(value);
-
         TotalGold += value;
+        unityEvents[EventName.CheckGoldEvent].Invoke(totalGold);
+           
+       
+        
+        
         Debug.Log("vl :" + TotalGold);
     }
 

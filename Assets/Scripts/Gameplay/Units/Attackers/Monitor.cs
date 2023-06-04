@@ -1,4 +1,5 @@
 using Assets.Scripts.Gameplay.Units;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,8 +69,9 @@ public class Monitor : Attacker
     protected override void Die()
     {
 
-
-        unityEvents[EventName.GoldChangeEvent].Invoke(1);
+        int value = Convert.ToInt32(Math.Ceiling(Strength2()));
+        unityEvents[EventName.GoldChangeEvent].Invoke(value);
+    
         base.Die();
         // Gold.PlusGold(value);
 
