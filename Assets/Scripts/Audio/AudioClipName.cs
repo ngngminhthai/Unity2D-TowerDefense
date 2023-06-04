@@ -9,5 +9,6 @@ public enum AudioClipName
     Explosion,
     MenuButtonClick,
     PauseGame,
-    TeddyShot
+    TeddyShot,
+    Attacker
 }

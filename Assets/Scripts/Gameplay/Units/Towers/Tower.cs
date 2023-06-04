@@ -80,7 +80,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
                         if (!cooldownTimerBullet.Running && finishedRotate)
                         {
-                            Debug.Log("Shoot");
+                            AudioManager.Play(AudioClipName.BurgerShot);
                             cooldownTimerBullet.Duration = 1;
                             cooldownTimerBullet.Run();
                             GameObject createdBullet = Instantiate(bullet, transform.position, transform.rotation);

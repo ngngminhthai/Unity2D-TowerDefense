@@ -136,11 +136,13 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 base.Attack(tower);
             }
+            AudioManager.Play(AudioClipName.Attacker);
         }
 
         protected override void Die()
         {
-            isAttack = false;
+			AudioManager.Play(AudioClipName.BurgerDeath);
+			isAttack = false;
             // If the current target dies, stop attacking it
             if (currentTarget != null && currentTarget.HitPoints <= 0f)
             {
@@ -148,14 +150,10 @@ namespace Assets.Scripts.Gameplay.Units
             }
             float value = Strength2();
             Gold.PlusGold(value);
+			base.Die();
+		}
 
-            base.Die();
-
-
-
-        }
-
-        public int GainedGold { get; set; }
+		public int GainedGold { get; set; }
 
         public float Strength2()
         {
