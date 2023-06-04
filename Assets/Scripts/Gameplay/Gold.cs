@@ -38,7 +38,7 @@ public class Gold : IntEventInvoker
        
         
         
-        Debug.Log("vl :" + TotalGold);
+        //Debug.Log("vl :" + TotalGold);
     }
 
 
