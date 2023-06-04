@@ -8,17 +8,17 @@ public class GameInitializer : MonoBehaviour
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
-
-    void Start()
+    private void Awake()
     {
         EventManager.Initialize();
+        ConfigurationUtils.Initialize();
+    }
+    void Start()
+    {
+        //EventManager.Initialize();
         //ConfigurationUtils.Initialize();
         DifficultyUtils.Initialize();
     }
 
-    private void Awake()
-    {
-        ConfigurationUtils.Initialize();
-
-    }
+   
 }

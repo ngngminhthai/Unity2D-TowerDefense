@@ -147,7 +147,7 @@ namespace Assets.Scripts.Gameplay.Units
                 currentTarget = null;
             }
             float value = Strength2();
-            Gold.PlusGold(value);
+           // Gold.PlusGold(value);
 
             base.Die();
 

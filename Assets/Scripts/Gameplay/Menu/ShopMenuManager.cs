@@ -44,7 +44,7 @@ public class ShopMenuManager : MonoBehaviour
         priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
         priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
 
-        goldText.text = "Gold:" + Gold.TotalGold;
+       // goldText.text = "Gold:" + Gold.TotalGold;
         canvas.gameObject.SetActive(false);
 
 
@@ -58,44 +58,44 @@ public class ShopMenuManager : MonoBehaviour
     public void BuyArcher()
     {
         //Archery archy = GetComponent<Archery>();
-        Gold.MinusGold(ManageInfor.ArcheryStrength);
+        //Gold.MinusGold(ManageInfor.ArcheryStrength);
         Vector3 screenPosition = new Vector3(0, 0, 2);
         GameObject spaw = Instantiate<GameObject>(prefabArchery, screenPosition, Quaternion.identity);
 
     }
     public void Update()
     {
-        goldText.text = "Gold:" + Gold.TotalGold;
+       // goldText.text = "Gold:" + Gold.TotalGold;
 
-        if (Gold.TotalGold < ManageInfor.ArcheryStrength)
-        {
-            btnBuyArchery.interactable = false;
-            btnUpdateArchery.interactable = false;
-        }
-        else
-        {
-            btnBuyArchery.interactable = true;
-            btnUpdateArchery.interactable = true;
-        }
+       //if (Gold.TotalGold < ManageInfor.ArcheryStrength)
+       // {
+       //     btnBuyArchery.interactable = false;
+       //     btnUpdateArchery.interactable = false;
+       // }
+       // else
+       // {
+       //     btnBuyArchery.interactable = true;
+       //     btnUpdateArchery.interactable = true;
+       // }
 
-        if (Gold.TotalGold < ManageInfor.WarriorStrength)
-        {
-            btnBuyWarrior.interactable = false;
-            btnUpdateWarrior.interactable = false;
-        }
-        else
-        {
-            btnBuyWarrior.interactable = true;
-            btnUpdateWarrior.interactable = true;
-        }
-        priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
-        priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
+       // if (Gold.TotalGold < ManageInfor.WarriorStrength)
+       // {
+       //     btnBuyWarrior.interactable = false;
+       //     btnUpdateWarrior.interactable = false;
+       // }
+       // else
+       // {
+       //     btnBuyWarrior.interactable = true;
+       //     btnUpdateWarrior.interactable = true;
+       // }
+       // priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
+       // priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
     }
     // Update is called once per frame
 
     public void BuyWarrior()
     {
-        Gold.MinusGold(ManageInfor.WarriorStrength);
+       // Gold.MinusGold(ManageInfor.WarriorStrength);
         Vector3 screenPosition = new Vector3(0, 0, 2);
         GameObject spaw = Instantiate<GameObject>(prefabWarrior, screenPosition, Quaternion.identity);
     }
@@ -104,7 +104,7 @@ public class ShopMenuManager : MonoBehaviour
 
        
         ManageInfor.LevelUpArchery();
-        Gold.MinusGold(ManageInfor.ArcheryStrength);
+      //  Gold.MinusGold(ManageInfor.ArcheryStrength);
         levelArchery.text = "Level: " + ManageInfor.ArcheryLevel;
       
     }
@@ -112,7 +112,7 @@ public class ShopMenuManager : MonoBehaviour
     {
 
         ManageInfor.LevelUpWarrior();
-        Gold.MinusGold(ManageInfor.WarriorStrength);
+      //  Gold.MinusGold(ManageInfor.WarriorStrength);
         levelWarrior.text = "Level: " + ManageInfor.WarriorLevel;
     }
     public int RoundFloat(float value)

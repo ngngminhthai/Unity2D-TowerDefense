@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuiderMenuManager : MonoBehaviour
+public class BuiderMenuManager : IntEventInvoker
 {
     [SerializeField]
     TextMeshProUGUI goldText;
@@ -58,6 +58,14 @@ public class BuiderMenuManager : MonoBehaviour
 
     void Start()
     {
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+
+
+
+
+        // goldText.text = "Gold:" + Gold.TotalGold;
+        canvas.gameObject.SetActive(false);
         _towerFactory = new TowerFactory();
 
 
@@ -65,7 +73,7 @@ public class BuiderMenuManager : MonoBehaviour
         priceTowerMage.text = "Price: 1";
         priceTowerAOE.text = "Price: 1";
 
-        goldText.text = "Gold:" + Gold.TotalGold;
+        //goldText.text = "Gold:" + Gold.TotalGold;
         canvas.gameObject.SetActive(false);
 
 
@@ -79,7 +87,7 @@ public class BuiderMenuManager : MonoBehaviour
 
     public void Update()
     {
-        goldText.text = "Gold:" + Gold.TotalGold;
+        //goldText.text = "Gold:" + Gold.TotalGold;
 
         //if (Gold.TotalGold < ManageInfor.ArcheryStrength)
         //{
@@ -107,6 +115,7 @@ public class BuiderMenuManager : MonoBehaviour
     // Update is called once per frame
     public void BuyTowerArcher()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Archery");
         tower.Create(buildPosition, prefabArcheryTower);
         DestroyBuilderBase();
@@ -114,12 +123,14 @@ public class BuiderMenuManager : MonoBehaviour
     }
     public void BuyTowerMage()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("Mage");
         tower.Create(buildPosition, prefabMageTower);
         DestroyBuilderBase();
     }
     public void BuyTowerAOE()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
         Tower tower = _towerFactory.GetTower("AOE");
         tower.Create(buildPosition, prefabAOETower);
         DestroyBuilderBase();

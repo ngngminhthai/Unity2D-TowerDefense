@@ -9,7 +9,10 @@ public enum EventName
 {
 	GameStartedEvent,
 	GameOverEvent,
-	HealthChangedEvent,
+    GoldChangeEvent,
+
+    HealthChangedEvent,
 	PointsAddedEvent,
-	TimerChangedEvent
+	TimerChangedEvent,
+    
 }
