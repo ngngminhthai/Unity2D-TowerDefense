@@ -68,7 +68,6 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                         targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
                         float angleDiff = Quaternion.Angle(gameObject.transform.rotation, targetRotation);
                         gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, 10);
-
                         if (angleDiff <= 1)
                         {
                             finishedRotate = true;
@@ -89,9 +88,9 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                             createdBullet.GetComponent<TowerAttack>().sourceGameObject = gameObject;
                             createdBullet.GetComponent<TowerAttack>().targetDirection = closestCollider.gameObject.transform.position;
                             createdBullet.GetComponent<TowerAttack>().targetGameObject = closestCollider.gameObject.GetComponent<Unit>();
-                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;
-
+                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;                       
                             createdBullet.GetComponent<Rigidbody2D>().AddForce((closestCollider.gameObject.transform.position - gameObject.transform.position).normalized * 15f, ForceMode2D.Impulse);
+                            AudioManager.Play(AudioClipName.BurgerShot);
                         }
                     }
                 }
