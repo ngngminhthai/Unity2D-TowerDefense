@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,19 +26,49 @@ public class MenuUpdate : MonoBehaviour
     TextMeshProUGUI LevelText;
 
     public Button buttonToDisable;
+    
+
+    private Camera mainCamera;
+    bool previousChangeCharacterInput = false;
+    GameObject objectClick;
     void Start()
     {
+        mainCamera = Camera.main;
         if (currentLevel == 3)
             buttonToDisable.interactable = false; 
         int levelUp = currentLevel + 1; 
         canvas.gameObject.SetActive(false);
-        LevelText.text = "Level: " + levelUp;
+        //LevelText.text = "Level: " + levelUp;
+       
     }
-  
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D[] hit;
+            Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            // Phát ra Ray từ vị trí con trỏ chuột và kiểm tra va chạm với Collider2D
+            hit = Physics2D.RaycastAll(rayOrigin, Vector2.zero);
+
+            if (hit.Length > 0)
+            {
+                for (int i = 0; i < hit.Length; i++)
+                {
+                    // Debug.Log("a");
+                    if (hit[i].collider.tag == "TowerAttack")
+                    {
+                        objectClick = hit[i].collider.gameObject;
+                        LoadShop();
+                        break;
+                    }
+                }
+            }
+
+
+
+        }
     }
     public void LoadShop()
     {
@@ -49,13 +79,13 @@ public class MenuUpdate : MonoBehaviour
         }
 
     }
-    void OnMouseDown()
-    {
-        //Vector3 oldObjectPosition = transform.position;
-        //Quaternion oldObjectRotation = transform.rotation;
-        Debug.Log("Innnnnnnn");
-        LoadShop();
-    }
+    //void OnMouseDown()
+    //{
+    //    //Vector3 oldObjectPosition = transform.position;
+    //    //Quaternion oldObjectRotation = transform.rotation;
+    //    Debug.Log("Innnnnnnn");
+    //    LoadShop();
+    //}
     public void ExitMenu()
     {
         canvas.gameObject.SetActive(false);
@@ -64,11 +94,11 @@ public class MenuUpdate : MonoBehaviour
     public void UpdateMenu()
     {
         Debug.Log("In");
-        if(currentLevel == 1)
-            Instantiate(towerLevel02, transform.position, transform.rotation);
-        else 
-            Instantiate(towerLevel03, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (currentLevel == 1)
+            Instantiate(towerLevel02, objectClick.transform.position, objectClick.transform.rotation);
+        else
+            Instantiate(towerLevel03, objectClick.transform.position, objectClick.transform.rotation);
+        Destroy(objectClick);
     }
     public void DestroyMenu()
     {

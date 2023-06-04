@@ -88,29 +88,7 @@ public class BuiderMenuManager : IntEventInvoker
 
     public void Update()
     {
-        //goldText.text = "Gold:" + Gold.TotalGold;
-
-        //if (Gold.TotalGold < ManageInfor.ArcheryStrength)
-        //{
-        //    btnBuyArchery.interactable = false;
-        //    btnUpdateArchery.interactable = false;
-        //}
-        //else
-        //{
-        //    btnBuyArchery.interactable = true;
-        //    btnUpdateArchery.interactable = true;
-        //}
-
-        //if (Gold.TotalGold < ManageInfor.WarriorStrength)
-        //{
-        //    btnBuyWarrior.interactable = false;
-        //    btnUpdateWarrior.interactable = false;
-        //}
-        //else
-        //{
-        //    btnBuyArchery.interactable = true;
-        //    btnUpdateWarrior.interactable = true;
-        //}
+       
 
     }
     // Update is called once per frame
