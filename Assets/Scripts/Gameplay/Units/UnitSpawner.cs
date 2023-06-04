@@ -42,7 +42,11 @@ public class UnitSpawner : MonoBehaviour
     private bool isEndWave = false;
     private int level = 1;
     Timer timer;
+    private void Awake()
+    {
+        EventManager.Initialize();
 
+    }
     void Start()
     {
         CountWave = 1;

@@ -2,7 +2,7 @@ using Assets.Scripts.Common;
 using Assets.Scripts.Gameplay.Units;
 using UnityEngine;
 
-public abstract class Unit : MonoBehaviour
+public abstract class Unit : IntEventInvoker
 {
     private int level = 1;
 
@@ -51,7 +51,12 @@ public abstract class Unit : MonoBehaviour
     public int stateAttack;
 
     public HealthBar healthBar;
-
+    public void Awake()
+    {
+        
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+    }
 
     public virtual void Initialize(float damageMultiplier, float hitpointMultiplier, float speedMultiplier)
     {
@@ -74,7 +79,7 @@ public abstract class Unit : MonoBehaviour
         healthBar.SetMaxHealth(HitPoints);
     }
 
-
+    
     public virtual void Attack(Unit target)
     {
         // Tranh bao loi vi attracker khong co script AgentMoventMent

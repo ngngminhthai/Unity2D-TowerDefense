@@ -6,7 +6,12 @@ namespace Assets.Scripts.Gameplay.Units
     {
         private Defender currentTarget;
 
+        public void Awake()
+        {
 
+            unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+            EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+        }
         public Attacker(int level) : base(level)
         {
         }
@@ -136,24 +141,27 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 base.Attack(tower);
             }
-            AudioManager.Play(AudioClipName.Attacker);
         }
 
         protected override void Die()
         {
-			AudioManager.Play(AudioClipName.BurgerDeath);
-			isAttack = false;
-            // If the current target dies, stop attacking it
-            if (currentTarget != null && currentTarget.HitPoints <= 0f)
-            {
-                currentTarget = null;
-            }
-            float value = Strength2();
-            Gold.PlusGold(value);
-			base.Die();
-		}
+            //isAttack = false;
+            //// If the current target dies, stop attacking it
+            //if (currentTarget != null && currentTarget.HitPoints <= 0f)
+            //{
+            //    currentTarget = null;
+            //}
+            //float value = Strength2();
+            //Gold.PlusGold(value);
 
-		public int GainedGold { get; set; }
+            //base.Die();
+            unityEvents[EventName.GoldChangeEvent].Invoke(100);
+            Debug.Log("attackerdie");
+
+
+        }
+
+        public int GainedGold { get; set; }
 
         public float Strength2()
         {
