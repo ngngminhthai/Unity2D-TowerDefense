@@ -26,19 +26,20 @@ public class MenuUpdate : MonoBehaviour
     TextMeshProUGUI LevelText;
 
     public Button buttonToDisable;
-    int currentLevel;
+    
 
     private Camera mainCamera;
     bool previousChangeCharacterInput = false;
     GameObject objectClick;
     void Start()
     {
+        mainCamera = Camera.main;
         if (currentLevel == 3)
             buttonToDisable.interactable = false; 
         int levelUp = currentLevel + 1; 
         canvas.gameObject.SetActive(false);
-        LevelText.text = "Level: " + levelUp;
-        mainCamera = Camera.main;
+        //LevelText.text = "Level: " + levelUp;
+       
     }
 
     // Update is called once per frame
@@ -47,8 +48,7 @@ public class MenuUpdate : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D[] hit;
-            Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition); // Chuyển vị trí con trỏ chuột thành World Space
-
+            Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             // Phát ra Ray từ vị trí con trỏ chuột và kiểm tra va chạm với Collider2D
             hit = Physics2D.RaycastAll(rayOrigin, Vector2.zero);
 
