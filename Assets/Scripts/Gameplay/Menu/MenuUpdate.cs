@@ -15,7 +15,9 @@ public class MenuUpdate : MonoBehaviour
     GameObject towerLevel03;
 
     [SerializeField]
-    int currentLevel; 
+    int currentLevel;
+
+    bool previousChangeCharacterInput = false;
     void Start()
     {
         canvas.gameObject.SetActive(false);
@@ -24,7 +26,26 @@ public class MenuUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!previousChangeCharacterInput)
+            {
+                previousChangeCharacterInput = true;
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    Debug.Log("111");
+                    canvas.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                previousChangeCharacterInput = false;
+            }
+
+        }
     }
     public void LoadShop()
     {
@@ -35,13 +56,14 @@ public class MenuUpdate : MonoBehaviour
         }
 
     }
-    void OnMouseDown()
-    {
-        //Vector3 oldObjectPosition = transform.position;
-        //Quaternion oldObjectRotation = transform.rotation;
-        Debug.Log("Innnnnnnn");
-        LoadShop();
-    }
+    
+    //void OnMouseDown()
+    //{
+    //    //Vector3 oldObjectPosition = transform.position;
+    //    //Quaternion oldObjectRotation = transform.rotation;
+    //    Debug.Log("Innnnnnnn");
+    //    LoadShop();
+    //}
     public void ExitMenu()
     {
         canvas.gameObject.SetActive(false);
