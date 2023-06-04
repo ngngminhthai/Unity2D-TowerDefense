@@ -15,7 +15,7 @@ public class GameInitializer : MonoBehaviour
     }
     void Start()
     {
-        //EventManager.Initialize();
+        //  EventManager.Initialize();
         //ConfigurationUtils.Initialize();
         DifficultyUtils.Initialize();
     }
