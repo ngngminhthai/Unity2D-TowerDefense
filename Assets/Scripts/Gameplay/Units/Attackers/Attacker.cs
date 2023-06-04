@@ -136,6 +136,7 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 base.Attack(tower);
             }
+            AudioManager.Play(AudioClipName.BurgerDamage);
         }
 
         protected  override void Die()
@@ -148,8 +149,9 @@ namespace Assets.Scripts.Gameplay.Units
                 currentTarget = null;
             }
             float value = Strength2();
-           
-            base.Die();
+			AudioManager.Play(AudioClipName.BurgerDeath);
+
+			base.Die();
             // Gold.PlusGold(value);
           
 
