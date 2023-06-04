@@ -16,6 +16,7 @@ public class Banshee : Attacker
     // Start is called before the first frame update
     public void Start()
     {
+        unityEvents = new Dictionary<EventName, UnityEngine.Events.UnityEvent<int>>();
         unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         AttackRange = ManageInfor.BansheeRange;
