@@ -43,6 +43,13 @@ public class BuiderMenuManager : MonoBehaviour
     [SerializeField]
     GameObject prefabAOETower;
 
+    [SerializeField]
+    GameObject prefabMageTower;
+
+    [SerializeField]
+    GameObject prefabArcheryTower;
+
+
     private TowerFactory _towerFactory;
 
 
@@ -100,17 +107,16 @@ public class BuiderMenuManager : MonoBehaviour
     // Update is called once per frame
     public void BuyTowerArcher()
     {
-        //Archery archy = GetComponent<Archery>();
-        // Gold.MinusGold(ManageInfor.ArcheryStrength);
-        Vector3 screenPosition = new Vector3(0, 0, 2);
-        //GameObject spaw = Instantiate<GameObject>(prefabArchery, screenPosition, Quaternion.identity);
+        Tower tower = _towerFactory.GetTower("Archery");
+        tower.Create(buildPosition, prefabArcheryTower);
+        DestroyBuilderBase();
 
     }
     public void BuyTowerMage()
     {
-        //Gold.MinusGold(ManageInfor.WarriorStrength);
-        //Vector3 screenPosition = new Vector3(0, 0, 2);
-        //GameObject spaw = Instantiate<GameObject>(prefabWarrior, screenPosition, Quaternion.identity);
+        Tower tower = _towerFactory.GetTower("Mage");
+        tower.Create(buildPosition, prefabMageTower);
+        DestroyBuilderBase();
     }
     public void BuyTowerAOE()
     {

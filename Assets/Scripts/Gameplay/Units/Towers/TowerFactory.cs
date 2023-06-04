@@ -9,7 +9,7 @@ namespace Assets.Scripts.Gameplay.Units.Towers
         {
             switch (TowerType)
             {
-                case "Archer":
+                case "Archery":
                     return new ArcheryTower();
                 case "Mage":
                     return new MageTower();

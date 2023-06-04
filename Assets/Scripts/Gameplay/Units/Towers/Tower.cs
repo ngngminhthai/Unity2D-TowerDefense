@@ -80,13 +80,13 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
                         if (!cooldownTimerBullet.Running && finishedRotate)
                         {
-                            Debug.Log("Shoot");
+                            //Debug.Log("Shoot");
                             cooldownTimerBullet.Duration = 1;
                             cooldownTimerBullet.Run();
                             GameObject createdBullet = Instantiate(bullet, transform.position, transform.rotation);
                             createdBullet.transform.rotation = targetRotation;
                             createdBullet.GetComponent<TowerAttack>().Damage = (float)Damage;
-                            createdBullet.GetComponent<TowerAttack>().sourceDirection = gameObject.transform.position;
+                            createdBullet.GetComponent<TowerAttack>().sourceGameObject = gameObject;
                             createdBullet.GetComponent<TowerAttack>().targetDirection = closestCollider.gameObject.transform.position;
                             createdBullet.GetComponent<TowerAttack>().targetGameObject = closestCollider.gameObject.GetComponent<Unit>();
                             createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;
@@ -100,6 +100,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
 
         public abstract void Create(Vector2 buildPosition, GameObject gameObject);
+
 
     }
 }

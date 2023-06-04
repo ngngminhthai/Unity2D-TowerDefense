@@ -6,7 +6,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
     {
         public override void Create(Vector2 buildPosition, GameObject gameObject)
         {
-            throw new System.NotImplementedException();
+            GameObject spaw = Instantiate<GameObject>(gameObject, buildPosition, Quaternion.identity);
         }
 
         private void Start()

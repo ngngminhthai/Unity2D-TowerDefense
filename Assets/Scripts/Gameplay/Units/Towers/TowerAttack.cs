@@ -5,7 +5,7 @@ public class TowerAttack : MonoBehaviour
 {
     public float Range { get; set; }
 
-    public Vector2 sourceDirection;
+    public GameObject sourceGameObject;
 
     public Vector2 targetDirection;
 
@@ -13,6 +13,10 @@ public class TowerAttack : MonoBehaviour
 
     public Unit targetGameObject;
     public float Damage { get; set; }
+
+
+    [SerializeField]
+    public GameObject reachingAnimation;
 
     //boi vi game object co 2 collider
     private float count = 0;
@@ -22,29 +26,6 @@ public class TowerAttack : MonoBehaviour
         count = 0;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //khi trigger se trigger 2 lan
-    //    if (collision.gameObject.tag != sourceGameObject.tag)
-    //    {
-    //        //chi trigger 1 lan ,neu khong co thi damage se x2
-    //        if (count == 1)
-    //            return;
-    //        if (collision.gameObject.tag == "attackers")
-    //        {
-    //            Debug.Log("Shoot at attacker");
-    //            collision.gameObject.GetComponent<Attacker>().TakeDamage(Damage);
-    //            Destroy(gameObject);
-    //        }
-    //        else
-    //        {
-    //            collision.gameObject.GetComponent<Defender>().TakeDamage(Damage);
-    //            Destroy(gameObject);
-    //        }
-    //        count++;
-    //    }
-    //}
-
     private void Update()
     {
         // Debug.Log(Vector2.Distance(transform.position, targetDirection));
@@ -52,13 +33,19 @@ public class TowerAttack : MonoBehaviour
         {
             if (targetGameObject != null)
             {
-                Debug.Log(Damage);
                 targetGameObject.GetComponent<Unit>().TakeDamage(Damage);
-
+                GameObject.Instantiate(reachingAnimation, targetGameObject.transform.position, Quaternion.identity);
+                DoesEffectBehaviour();
             }
+
             Tower.colliders.Remove(targetGameObjectPrefab);
             Destroy(gameObject);
         }
+    }
+
+    public virtual void DoesEffectBehaviour()
+    {
+
     }
     private void OnBecameInvisible()
     {
