@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Units
 {
@@ -20,6 +21,7 @@ namespace Assets.Scripts.Gameplay.Units
 
         public void Initialize()
         {
+            unityEvents = new Dictionary<EventName, UnityEngine.Events.UnityEvent<int>>();
             unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
             EventManager.AddInvoker(EventName.GoldChangeEvent, this);
             AttackRange = ManageInfor.HappyRange;

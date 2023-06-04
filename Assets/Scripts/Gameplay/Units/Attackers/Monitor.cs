@@ -19,6 +19,7 @@ public class Monitor : Attacker
   
     public void Start()
     {
+        unityEvents = new Dictionary<EventName, UnityEngine.Events.UnityEvent<int>>();
         unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         Initialize();
