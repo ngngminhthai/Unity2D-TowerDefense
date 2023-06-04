@@ -16,6 +16,8 @@ public class Ogre : Attacker
     
     public void Start()
     {
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         Initialize();
     }
 
@@ -54,6 +56,17 @@ public class Ogre : Attacker
             //Debug.Log("flase");
 
         }
+    }
+      protected override void Die()
+    {
+
+
+        unityEvents[EventName.GoldChangeEvent].Invoke(1);
+        base.Die();
+        // Gold.PlusGold(value);
+
+
+
     }
 
 }

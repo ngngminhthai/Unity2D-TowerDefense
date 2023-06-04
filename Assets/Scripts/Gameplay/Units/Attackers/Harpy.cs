@@ -12,7 +12,7 @@ namespace Assets.Scripts.Gameplay.Units
         public Harpy(int level) : base(level)
         {
         }
-
+        
         public void Start()
         {
             Initialize();
@@ -20,6 +20,8 @@ namespace Assets.Scripts.Gameplay.Units
 
         public void Initialize()
         {
+            unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+            EventManager.AddInvoker(EventName.GoldChangeEvent, this);
             AttackRange = ManageInfor.HappyRange;
             SelectedRange = ManageInfor.HarpySelectedRange;
             if ( level == null)
@@ -46,6 +48,17 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 animator.SetBool("isAttack", false);
             }
+        }
+        protected override void Die()
+        {
+
+
+            unityEvents[EventName.GoldChangeEvent].Invoke(1);
+            base.Die();
+            // Gold.PlusGold(value);
+
+
+
         }
 
     }

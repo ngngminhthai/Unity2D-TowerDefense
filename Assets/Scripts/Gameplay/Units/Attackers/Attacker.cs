@@ -138,8 +138,9 @@ namespace Assets.Scripts.Gameplay.Units
             }
         }
 
-        protected override void Die()
+        protected  override void Die()
         {
+           
             isAttack = false;
             // If the current target dies, stop attacking it
             if (currentTarget != null && currentTarget.HitPoints <= 0f)
@@ -147,10 +148,10 @@ namespace Assets.Scripts.Gameplay.Units
                 currentTarget = null;
             }
             float value = Strength2();
-           // Gold.PlusGold(value);
-
+           
             base.Die();
-
+            // Gold.PlusGold(value);
+          
 
 
         }
