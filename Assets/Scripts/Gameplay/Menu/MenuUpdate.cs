@@ -133,9 +133,10 @@ public class MenuUpdate : MonoBehaviour
       
         
     }
-    public void DestroyMenu()
+    public void DestroyClick()
     {
         Instantiate(tower.BuiderBase, objectClick.transform.position, objectClick.transform.rotation);
+        ExitMenu();
         Destroy(objectClick);
     }
 
