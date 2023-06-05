@@ -25,6 +25,7 @@ public class GameClickManager : MonoBehaviour
                 {
                     hit = hits[i];
                 }
+
             }
 
             if (hit.collider != default)
@@ -89,6 +90,11 @@ public class GameClickManager : MonoBehaviour
                     if (selectedTarget != null && selectedTarget.GetComponent<Defender>() != null)
                         selectedTarget.GetComponent<Defender>().selection.GetComponent<SpriteRenderer>().enabled = true;
                 }
+                
+                
+                
+                
+                
                 //selectedTarget = null;
 
             }
