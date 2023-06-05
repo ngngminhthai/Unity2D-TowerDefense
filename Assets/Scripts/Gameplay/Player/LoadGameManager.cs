@@ -45,8 +45,11 @@ public class LoadGameManager : MonoBehaviour
             else
                 defenderObject = Instantiate(warrionPrefab, position, Quaternion.identity);
 
-            defenderObject.GetComponent<Defender>().HitPoints = obj.Health;
+            // Truoc kia
+            // defenderObject.GetComponent<Defender>().HitPoints = obj.Health;
 
+            // Moi Fix :
+            defenderObject.GetComponent<Defender>().healthBar.SetHealth(obj.Health);
         }
     }
 

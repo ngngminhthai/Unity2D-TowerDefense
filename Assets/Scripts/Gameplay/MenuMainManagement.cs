@@ -64,34 +64,65 @@ public class MenuMainManagement : MonoBehaviour
     public void RestGame()
     {
         // Save game 
-        //ManageInfor.Reset();
-        //SceneManager.LoadScene("finalsence");
-        // Code moi  
-        List<ObjectSave> objectSaves = new List<ObjectSave>();
-        GameObject[] list = GameObject.FindGameObjectsWithTag("defenders");
+        List<ObjectSave> objectSavesDefender = new List<ObjectSave>(); // Defender
+        List<ObjectSave> objectSavesAttracker = new List<ObjectSave>(); // Attacker
+        List<ObjectSaveTowerAttack> objectSavesTowerAttack = new List<ObjectSaveTowerAttack>(); // Tower Attack
+
+        // Find all 
+        GameObject[] Defenderlist = GameObject.FindGameObjectsWithTag("defenders");
+        GameObject[] Attracklist = GameObject.FindGameObjectsWithTag("attackers");
+        GameObject[] TowerAttackList = GameObject.FindGameObjectsWithTag("TowerAttack");
+
+        // HeadQuarter 
         HeadQuarter tower = GameObject.FindGameObjectWithTag("tower").GetComponent<HeadQuarter>();
         ObjectSaveTower objectSaveTower = new ObjectSaveTower { Health = tower.HitPoints };
 
-        for (int i = 0; i < list.Length; i++)
+        // Save Defender
+        for (int i = 0; i < Defenderlist.Length; i++)
         {
             //writer.WriteLine(list[i].transform.position.x + "," + list[i].transform.position.y + "," + list[i].transform.localScale.x);
-            Defender defender = list[i].GetComponent<Defender>();
+            Defender defender = Defenderlist[i].GetComponent<Defender>();
             if (defender.GetComponent<Defender>() is Archery)
-                objectSaves.Add(new ObjectSave { X = defender.transform.position.x, Y = defender.transform.position.y, Health = defender.HitPoints, UnitType = "Archery" });
+                objectSavesDefender.Add(new ObjectSave { X = defender.transform.position.x, Y = defender.transform.position.y, Health = defender.HitPoints, UnitType = "Archery" });
             if (defender.GetComponent<Defender>() is Warrion)
-                objectSaves.Add(new ObjectSave { X = defender.transform.position.x, Y = defender.transform.position.y, Health = defender.HitPoints, UnitType = "Warrion" });
+                objectSavesDefender.Add(new ObjectSave { X = defender.transform.position.x, Y = defender.transform.position.y, Health = defender.HitPoints, UnitType = "Warrion" });
+        }
+        // Save Attacker 
+        for (int i = 0; i < Attracklist.Length; i++)
+        {
+            Attacker attacker = Attracklist[i].GetComponent<Attacker>();
+            if (attacker.GetComponent<Attacker>() is Banshee)
+                objectSavesAttracker.Add(new ObjectSave { X = attacker.transform.position.x, Y = attacker.transform.position.y, Health = attacker.HitPoints, UnitType = "Banshee" });
+            if (attacker.GetComponent<Attacker>() is Harpy)
+                objectSavesAttracker.Add(new ObjectSave { X = attacker.transform.position.x, Y = attacker.transform.position.y, Health = attacker.HitPoints, UnitType = "Harpy" });
+            if (attacker.GetComponent<Attacker>() is Monitor)
+                objectSavesAttracker.Add(new ObjectSave { X = attacker.transform.position.x, Y = attacker.transform.position.y, Health = attacker.HitPoints, UnitType = "Monitor" });
+            if (attacker.GetComponent<Attacker>() is Ogre)
+                objectSavesAttracker.Add(new ObjectSave { X = attacker.transform.position.x, Y = attacker.transform.position.y, Health = attacker.HitPoints, UnitType = "Ogre" });
+        }
+        // Save TowerAttack
+        for (int i = 0; i < TowerAttackList.Length; i++)
+        {
+            TowerInformation towerAttack = TowerAttackList[i].GetComponent<TowerInformation>();
+            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel }); 
         }
 
         // Serialize the list of objects into a Json string 
-        string jsonDefender = JsonConvert.SerializeObject(objectSaves);
+        string jsonDefender = JsonConvert.SerializeObject(objectSavesDefender);
+        string jsonAttacker = JsonConvert.SerializeObject(objectSavesAttracker);
         string jsonTower = JsonConvert.SerializeObject(objectSaveTower);
+        string jsonTowerAttack = JsonConvert.SerializeObject(objectSavesTowerAttack);
 
         // Using PlayerPrefs
 
         // Save Defender 
         PlayerPrefs.SetString("DefenderSave", jsonDefender);
+        // Save Attacker
+        PlayerPrefs.SetString("AttackerSave", jsonAttacker);
         // Save Tower 
         PlayerPrefs.SetString("TowerSave", jsonTower);
+        // Save Tower Attack
+        PlayerPrefs.SetString("TowerAttackSave", jsonTowerAttack);
     }
 
 
