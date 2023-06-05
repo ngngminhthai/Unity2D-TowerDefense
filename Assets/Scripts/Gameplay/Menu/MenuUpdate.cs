@@ -58,9 +58,18 @@ public class MenuUpdate : MonoBehaviour
                         // Debug.Log("a");
                         if (hit[i].collider.tag == "TowerAttack")
                         {
+                            
                             objectClick = hit[i].collider.gameObject;
                             tower = hit[i].collider.GetComponent<TowerInformation>();
                             currentLevel = tower.level;
+                            if (currentLevel == 3)
+                            {
+                                buttonToDisable.interactable = false;
+                            }
+                            else
+                            {
+                                buttonToDisable.interactable = true;
+                            }
                             LoadShop();
                             break;
                         }
@@ -126,10 +135,7 @@ public class MenuUpdate : MonoBehaviour
             Instantiate(tower.towerLevel03, objectClick.transform.position, objectClick.transform.rotation);
         ExitMenu();
         Destroy(objectClick);
-        if (currentLevel == 3)
-        {
-            buttonToDisable.interactable = false;
-        }
+       
       
         
     }
@@ -138,6 +144,7 @@ public class MenuUpdate : MonoBehaviour
         Instantiate(tower.BuiderBase, objectClick.transform.position, objectClick.transform.rotation);
         ExitMenu();
         Destroy(objectClick);
+
     }
 
 
