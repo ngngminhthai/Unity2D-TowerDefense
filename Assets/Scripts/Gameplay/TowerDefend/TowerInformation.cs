@@ -26,4 +26,6 @@ public class TowerInformation : MonoBehaviour
     {
         
     }
+
+    public int getLevel { get { return level; } }
 }
