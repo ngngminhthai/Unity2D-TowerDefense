@@ -10,36 +10,30 @@ public class MenuUpdate : MonoBehaviour
     [SerializeField]
     Canvas canvas;
 
-    [SerializeField]
-    GameObject towerLevel02;
-
-    [SerializeField]
-    GameObject towerLevel03;
-
-    [SerializeField]
-    int currentLevel;
-
-    [SerializeField]
-    GameObject BuiderBase;
+   
 
     [SerializeField]
     TextMeshProUGUI LevelText;
 
     public Button buttonToDisable;
-    
 
+   
+    TowerInformation tower;
     private Camera mainCamera;
     bool previousChangeCharacterInput = false;
+
+
+
     GameObject objectClick;
+    int currentLevel;
+
     void Start()
     {
         mainCamera = Camera.main;
-        if (currentLevel == 3)
-            buttonToDisable.interactable = false; 
-        int levelUp = currentLevel + 1; 
+      
         canvas.gameObject.SetActive(false);
         //LevelText.text = "Level: " + levelUp;
-       
+
     }
 
     // Update is called once per frame
@@ -47,27 +41,38 @@ public class MenuUpdate : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D[] hit;
-            Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            // Phát ra Ray từ vị trí con trỏ chuột và kiểm tra va chạm với Collider2D
-            hit = Physics2D.RaycastAll(rayOrigin, Vector2.zero);
-
-            if (hit.Length > 0)
+            if (!previousChangeCharacterInput)
             {
-                for (int i = 0; i < hit.Length; i++)
+                RaycastHit2D[] hit;
+                Vector2 rayOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                // Phát ra Ray từ vị trí con trỏ chuột và kiểm tra va chạm với Collider2D
+                hit = Physics2D.RaycastAll(rayOrigin, Vector2.zero);
+
+                if (hit.Length > 0)
                 {
-                    // Debug.Log("a");
-                    if (hit[i].collider.tag == "TowerAttack")
+                    for (int i = 0; i < hit.Length; i++)
                     {
-                        objectClick = hit[i].collider.gameObject;
-                        LoadShop();
-                        break;
+                        // Debug.Log("a");
+                        if (hit[i].collider.tag == "TowerAttack")
+                        {
+                            objectClick = hit[i].collider.gameObject;
+                            tower = hit[i].collider.GetComponent<TowerInformation>();
+                            currentLevel = tower.level;
+                            LoadShop();
+                            break;
+                        }
                     }
+                    previousChangeCharacterInput = true;
                 }
             }
 
 
 
+
+        }
+        else
+        {
+            previousChangeCharacterInput = false;
         }
     }
     public void LoadShop()
@@ -95,14 +100,16 @@ public class MenuUpdate : MonoBehaviour
     {
         Debug.Log("In");
         if (currentLevel == 1)
-            Instantiate(towerLevel02, objectClick.transform.position, objectClick.transform.rotation);
-        else
-            Instantiate(towerLevel03, objectClick.transform.position, objectClick.transform.rotation);
+            Instantiate(tower.towerLevel02, objectClick.transform.position, objectClick.transform.rotation);
+        if(currentLevel==2)
+            Instantiate(tower.towerLevel03, objectClick.transform.position, objectClick.transform.rotation);
+        ExitMenu();
         Destroy(objectClick);
+        
     }
     public void DestroyMenu()
     {
-        Instantiate(BuiderBase, transform.position, transform.rotation);
-        Destroy(gameObject);
+        Instantiate(tower.BuiderBase, objectClick.transform.position, objectClick.transform.rotation);
+        Destroy(objectClick);
     }
 }
