@@ -147,8 +147,7 @@ namespace Assets.Scripts.Gameplay.Units
             {
                 currentTarget = null;
             }
-            
-           
+            AudioManager.Play(AudioClipName.BurgerDeath);
             base.Die();
             // Gold.PlusGold(value);
           
