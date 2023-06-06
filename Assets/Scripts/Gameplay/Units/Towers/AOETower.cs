@@ -4,8 +4,11 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 {
     public class AOETower : Tower
     {
+        //public Animator animator;
         [SerializeField]
         int currentLevel;
+
+        
 
         public override void Create(Vector2 buildPosition, GameObject gameObject)
         {
@@ -15,6 +18,8 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         void Start()
         {
+            animator.SetBool("isAttack", false);
+            isAttack = false;
             if (currentLevel == 1)
             {
                 Damage = ConfigurationUtils.AOETowerDamage;
@@ -33,7 +38,20 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                 Cooldown = ConfigurationUtils.AOETowerCoolDown;
                 Range = ConfigurationUtils.AOETowerRange;
             }
+            //animator.SetBool("isAttack", false);
             Initialize();
+        }
+        public void Update()
+        {
+
+            if (isAttack)
+            {
+                animator.SetBool("isAttack", true);
+            }
+            else
+            {
+                animator.SetBool("isAttack", false);
+            }
         }
     }
 }
