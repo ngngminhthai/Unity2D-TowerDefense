@@ -51,7 +51,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                     }
                     foreach (GameObject collider in colliders)
                     {
-                        if (collider.CompareTag("attackers"))
+                        if (collider.gameObject != null && collider.CompareTag("attackers"))
                         {
                             float distance = Vector2.Distance(collider.transform.position, gameObject.transform.position);
                             if (distance < minDistance)
