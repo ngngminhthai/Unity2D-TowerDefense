@@ -15,5 +15,6 @@ public enum EventName
 	PointsAddedEvent,
 	TimerChangedEvent,
     CheckGoldEvent,
+    ResetGold,
 
 }

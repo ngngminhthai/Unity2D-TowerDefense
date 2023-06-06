@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Gold : IntEventInvoker
 {
+    [SerializeField]
+    TextMeshProUGUI text;
+
     int totalGold;
     public int TotalGold
     {
@@ -19,10 +23,10 @@ public class Gold : IntEventInvoker
     void Start()
     {
 
-        totalGold = 2000;
+        totalGold = 1000;
 
         EventManager.AddListener(EventName.GoldChangeEvent, PlusGold);
-        
+        EventManager.AddListener(EventName.ResetGold, Reset);
         
         
         unityEvents.Add(EventName.CheckGoldEvent, new CheckGoldEvent());
@@ -35,11 +39,14 @@ public class Gold : IntEventInvoker
         TotalGold += value;
         unityEvents[EventName.CheckGoldEvent].Invoke(totalGold);
            
-       
+      
         
         
         //Debug.Log("vl :" + TotalGold);
     }
-
+    public void Reset(int value)
+    {
+        totalGold = value;
+    }
 
 }

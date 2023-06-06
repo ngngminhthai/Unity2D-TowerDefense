@@ -64,7 +64,7 @@ public class MenuUpdate : IntEventInvoker
                             objectClick = hit[i].collider.gameObject;
                             tower = hit[i].collider.GetComponent<TowerInformation>();
                             currentLevel = tower.level;
-
+                            Debug.Log(currentLevel);
                             // inable click btn
                             
 
