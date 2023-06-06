@@ -70,9 +70,9 @@ public class BuiderMenuManager : IntEventInvoker
         _towerFactory = new TowerFactory();
 
 
-        priceTowerArchery.text = "Price: 1 ";
-        priceTowerMage.text = "Price: 1";
-        priceTowerAOE.text = "Price: 1";
+        priceTowerArchery.text = "Price: 80 ";
+        priceTowerMage.text = "Price: 80";
+        priceTowerAOE.text = "Price: 80";
 
         //goldText.text = "Gold:" + Gold.TotalGold;
         canvas.gameObject.SetActive(false);

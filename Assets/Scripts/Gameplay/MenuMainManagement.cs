@@ -17,26 +17,26 @@ public class MenuMainManagement : IntEventInvoker
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         // checkgold
 
-        EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
+        //EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
     }
     public void ResetGold(int value)
     {
         int gold = -1 * value;
 
 
-        unityEvents[EventName.GoldChangeEvent].Invoke(gold);
+        unityEvents[EventName.GoldChangeEvent].Invoke(2);
     }
     public void NewGameButtonOnClickEvent()
     {
-        // Task 34 : Xóa toàn b? d? li?u and new game 
-        SceneManager.LoadScene("finalsence");
+       
+        SceneManager.LoadScene("map");
     }
 
     public void ContinueButtonOnClickEvent()
     {
         //LoadSavedGame();
         isLoaded = true;
-        SceneManager.LoadScene("finalsence");
+        SceneManager.LoadScene("map");
     }
 
     public void QuitButtonOnClickEvent()

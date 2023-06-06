@@ -38,7 +38,7 @@ public class MenuUpdate : IntEventInvoker
         unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
 
-        EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
+       //EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
     }
 
     // Update is called once per frame
@@ -114,7 +114,7 @@ public class MenuUpdate : IntEventInvoker
     public void ExitMenu()
     {
         updateMenuAction.gameObject.SetActive(false);
-
+        currentLevel = 1;
     }
     public void UpdateMenu()
     {
@@ -141,6 +141,7 @@ public class MenuUpdate : IntEventInvoker
     }
     public void DestroyClick()
     {
+        
         unityEvents[EventName.GoldChangeEvent].Invoke(30);
         Instantiate(tower.BuiderBase, objectClick.transform.position, objectClick.transform.rotation);
         ExitMenu();
