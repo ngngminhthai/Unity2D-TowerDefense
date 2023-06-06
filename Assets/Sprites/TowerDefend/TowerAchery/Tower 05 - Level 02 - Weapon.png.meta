@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,10 +122,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 129
-        width: 27
-        height: 31
+        x: 32
+        y: 2722
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,34 +140,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_1
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 129
-        width: 27
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 041d8b677d8f5eb4592bfdb150fb5e05
-      internalID: -442455645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_2
       rect:
         serializedVersion: 2
-        x: 226
-        y: 129
-        width: 28
-        height: 28
+        x: 32
+        y: 2627
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,34 +161,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_3
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 129
-        width: 27
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95e05b22b0076f64089f8d2ccbdf6a26
-      internalID: -2081070590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_4
       rect:
         serializedVersion: 2
-        x: 418
-        y: 129
-        width: 27
-        height: 30
+        x: 32
+        y: 2530
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,34 +182,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_5
-      rect:
-        serializedVersion: 2
-        x: 515
-        y: 129
-        width: 27
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69e892c5aadd8ad45826a2788da52cba
-      internalID: -1418797323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_6
       rect:
         serializedVersion: 2
-        x: 610
-        y: 129
-        width: 28
-        height: 32
+        x: 32
+        y: 2434
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,34 +203,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_7
-      rect:
-        serializedVersion: 2
-        x: 706
-        y: 129
-        width: 27
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dda94f07d3d5ec54094ccc7845d4fc00
-      internalID: -2076634752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_8
       rect:
         serializedVersion: 2
-        x: 2226
-        y: 32
-        width: 61
-        height: 61
+        x: 32
+        y: 2339
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,34 +224,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_9
-      rect:
-        serializedVersion: 2
-        x: 2350
-        y: 81
-        width: 5
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 257e427803803f347b34ac3096ab7848
-      internalID: -1580197304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_10
       rect:
         serializedVersion: 2
-        x: 35
-        y: 32
-        width: 27
-        height: 31
+        x: 32
+        y: 2242
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,34 +245,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_11
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 32
-        width: 27
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a48c035a1f704e429fba99057026017
-      internalID: -812868496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_12
       rect:
         serializedVersion: 2
-        x: 226
-        y: 32
-        width: 28
-        height: 31
+        x: 32
+        y: 2146
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,34 +266,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_13
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 32
-        width: 27
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca6f8727419730641821463e91d6bad1
-      internalID: 15018476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_14
       rect:
         serializedVersion: 2
-        x: 418
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 2051
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,34 +287,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_15
-      rect:
-        serializedVersion: 2
-        x: 515
-        y: 32
-        width: 27
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acc02debbaa3c7d49869c085a1594212
-      internalID: 972927542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_16
       rect:
         serializedVersion: 2
-        x: 610
-        y: 32
-        width: 28
-        height: 38
+        x: 32
+        y: 1954
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,10 +311,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_17
       rect:
         serializedVersion: 2
-        x: 706
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1859
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,10 +332,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_18
       rect:
         serializedVersion: 2
-        x: 803
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1762
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -521,10 +353,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_19
       rect:
         serializedVersion: 2
-        x: 898
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1666
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,10 +374,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_20
       rect:
         serializedVersion: 2
-        x: 994
-        y: 32
-        width: 28
-        height: 38
+        x: 32
+        y: 1571
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -563,10 +395,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_21
       rect:
         serializedVersion: 2
-        x: 1091
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1474
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -584,10 +416,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_22
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1378
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -605,10 +437,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_23
       rect:
         serializedVersion: 2
-        x: 1283
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1283
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -626,10 +458,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_24
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 32
-        width: 28
-        height: 38
+        x: 32
+        y: 1186
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,10 +479,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_25
       rect:
         serializedVersion: 2
-        x: 1474
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 1091
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -668,10 +500,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_26
       rect:
         serializedVersion: 2
-        x: 1571
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 994
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -689,10 +521,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_27
       rect:
         serializedVersion: 2
-        x: 1666
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 898
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -710,10 +542,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_28
       rect:
         serializedVersion: 2
-        x: 1762
-        y: 32
-        width: 28
-        height: 38
+        x: 32
+        y: 803
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -731,10 +563,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_29
       rect:
         serializedVersion: 2
-        x: 1859
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 706
+        width: 39
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -752,10 +584,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_30
       rect:
         serializedVersion: 2
-        x: 1954
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 607
+        width: 48
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -773,10 +605,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_31
       rect:
         serializedVersion: 2
-        x: 2051
-        y: 32
-        width: 27
-        height: 39
+        x: 32
+        y: 497
+        width: 61
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,34 +623,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_32
-      rect:
-        serializedVersion: 2
-        x: 2142
-        y: 32
-        width: 35
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c08b820570e0373478ad0575e249a2d5
-      internalID: 1540423894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_33
       rect:
         serializedVersion: 2
-        x: 2318
-        y: 59
-        width: 14
-        height: 6
+        x: 28
+        y: 398
+        width: 68
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,55 +644,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_34
-      rect:
-        serializedVersion: 2
-        x: 2339
-        y: 28
-        width: 27
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28d7ed50cd37bdf4bb261cd76b6119cc
-      internalID: -112207993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tower 05 - Level 02 - Weapon_35
-      rect:
-        serializedVersion: 2
-        x: 2371
-        y: 59
-        width: 14
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a457b6f71fdf3242834b053d6e6cd50
-      internalID: -565717113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tower 05 - Level 02 - Weapon_36
       rect:
         serializedVersion: 2
-        x: 2434
-        y: 32
-        width: 27
-        height: 38
+        x: 32
+        y: 323
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -899,10 +668,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_37
       rect:
         serializedVersion: 2
-        x: 2530
-        y: 32
-        width: 28
-        height: 38
+        x: 32
+        y: 226
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -920,10 +689,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_38
       rect:
         serializedVersion: 2
-        x: 2627
-        y: 32
-        width: 27
-        height: 35
+        x: 32
+        y: 130
+        width: 35
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -941,10 +710,10 @@ TextureImporter:
       name: Tower 05 - Level 02 - Weapon_39
       rect:
         serializedVersion: 2
-        x: 2722
-        y: 32
-        width: 27
-        height: 33
+        x: 32
+        y: 35
+        width: 33
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -103,6 +103,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -111,9 +123,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 23
-        y: 23
-        width: 18
-        height: 25
+        y: 343
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +143,10 @@ TextureImporter:
       name: Tower 07 - Level 01 - Weapon_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 23
-        width: 18
-        height: 25
+        x: 23
+        y: 279
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +164,10 @@ TextureImporter:
       name: Tower 07 - Level 01 - Weapon_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 23
-        width: 18
-        height: 30
+        x: 23
+        y: 215
+        width: 30
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +185,10 @@ TextureImporter:
       name: Tower 07 - Level 01 - Weapon_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 23
-        width: 18
-        height: 38
+        x: 23
+        y: 151
+        width: 38
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +206,10 @@ TextureImporter:
       name: Tower 07 - Level 01 - Weapon_4
       rect:
         serializedVersion: 2
-        x: 279
-        y: 23
-        width: 18
-        height: 26
+        x: 23
+        y: 87
+        width: 26
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +227,10 @@ TextureImporter:
       name: Tower 07 - Level 01 - Weapon_5
       rect:
         serializedVersion: 2
-        x: 343
+        x: 23
         y: 23
-        width: 18
-        height: 25
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

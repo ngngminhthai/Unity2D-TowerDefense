@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuUpdate : MonoBehaviour
+public class MenuUpdate : IntEventInvoker
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -14,12 +14,11 @@ public class MenuUpdate : MonoBehaviour
     Canvas buyMenu;
 
 
-    [SerializeField]
-    TextMeshProUGUI LevelText;
+  
     [SerializeField]
     public Button buttonToDisable;
-
    
+
     TowerInformation tower;
     private Camera mainCamera;
     bool previousChangeCharacterInput = false;
@@ -36,7 +35,10 @@ public class MenuUpdate : MonoBehaviour
       
         updateMenuAction.gameObject.SetActive(false);
         //LevelText.text = "Level: " + levelUp;
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
 
+        EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
     }
 
     // Update is called once per frame
@@ -62,17 +64,15 @@ public class MenuUpdate : MonoBehaviour
                             objectClick = hit[i].collider.gameObject;
                             tower = hit[i].collider.GetComponent<TowerInformation>();
                             currentLevel = tower.level;
-                            if (currentLevel == 3)
-                            {
-                                buttonToDisable.interactable = false;
-                            }
-                            else
-                            {
-                                buttonToDisable.interactable = true;
-                            }
+
+                            // inable click btn
+                            
+
                             LoadShop();
                             break;
                         }
+
+
                         //Debug.Log("a");
                         if (hit[i].collider.tag == "BuilderBase")
                         {
@@ -111,13 +111,6 @@ public class MenuUpdate : MonoBehaviour
         }
 
     }
-    //void OnMouseDown()
-    //{
-    //    //Vector3 oldObjectPosition = transform.position;
-    //    //Quaternion oldObjectRotation = transform.rotation;
-    //    Debug.Log("Innnnnnnn");
-    //    LoadShop();
-    //}
     public void ExitMenu()
     {
         updateMenuAction.gameObject.SetActive(false);
@@ -127,12 +120,19 @@ public class MenuUpdate : MonoBehaviour
     {
         
         Debug.Log("In");
-        if (currentLevel == 1)
+        if (currentLevel == 1) {
+
             Instantiate(tower.towerLevel02, objectClick.transform.position, objectClick.transform.rotation);
-        ExitMenu();
-        Destroy(objectClick);
-        if (currentLevel==2)
+            unityEvents[EventName.GoldChangeEvent].Invoke(-100);
+        }
+          
+        
+        
+        if (currentLevel == 2) {
             Instantiate(tower.towerLevel03, objectClick.transform.position, objectClick.transform.rotation);
+            unityEvents[EventName.GoldChangeEvent].Invoke(-120);
+        }
+           
         ExitMenu();
         Destroy(objectClick);
        
@@ -141,6 +141,7 @@ public class MenuUpdate : MonoBehaviour
     }
     public void DestroyClick()
     {
+        unityEvents[EventName.GoldChangeEvent].Invoke(30);
         Instantiate(tower.BuiderBase, objectClick.transform.position, objectClick.transform.rotation);
         ExitMenu();
         Destroy(objectClick);
@@ -159,5 +160,24 @@ public class MenuUpdate : MonoBehaviour
             BuiderMenuManager.destroyBuilderBase = objectClick;
         }
 
+    }
+    public void DisableButton(int value)
+    {
+        if (value < 80)
+        {
+            buttonToDisable.interactable = false;
+        }
+        else
+        {
+            buttonToDisable.interactable = true;
+            if (currentLevel == 3)
+            {
+                buttonToDisable.interactable = false;
+            }
+            else
+            {
+                buttonToDisable.interactable = true;
+            }
+        }
     }
 }
