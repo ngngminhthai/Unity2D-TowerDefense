@@ -38,7 +38,7 @@ public class MenuUpdate : IntEventInvoker
         unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
 
-        EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
+       // EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
     }
 
     // Update is called once per frame

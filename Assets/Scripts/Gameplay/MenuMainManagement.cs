@@ -1,5 +1,6 @@
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Gameplay.Units;
+using Assets.Scripts.Gameplay.Units.Defenders;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,26 +18,27 @@ public class MenuMainManagement : IntEventInvoker
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         // checkgold
 
-        EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
+        //EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
     }
     public void ResetGold(int value)
     {
         int gold = -1 * value;
 
 
-        unityEvents[EventName.GoldChangeEvent].Invoke(gold);
+        unityEvents[EventName.GoldChangeEvent].Invoke(2);
     }
     public void NewGameButtonOnClickEvent()
     {
-        // Task 34 : Xóa toàn b? d? li?u and new game 
-        SceneManager.LoadScene("finalsence");
+
+        SceneManager.LoadScene("map");
     }
 
     public void ContinueButtonOnClickEvent()
     {
         //LoadSavedGame();
         isLoaded = true;
-        SceneManager.LoadScene("finalsence");
+        SceneManager.LoadScene("map");
+        Tower.colliders.Clear();
     }
 
     public void QuitButtonOnClickEvent()
@@ -120,7 +122,7 @@ public class MenuMainManagement : IntEventInvoker
         for (int i = 0; i < TowerAttackList.Length; i++)
         {
             TowerInformation towerAttack = TowerAttackList[i].GetComponent<TowerInformation>();
-            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel }); 
+            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel });
         }
 
         // Serialize the list of objects into a Json string 

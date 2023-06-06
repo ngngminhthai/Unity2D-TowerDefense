@@ -88,7 +88,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                             createdBullet.GetComponent<TowerAttack>().sourceGameObject = gameObject;
                             createdBullet.GetComponent<TowerAttack>().targetDirection = closestCollider.gameObject.transform.position;
                             createdBullet.GetComponent<TowerAttack>().targetGameObject = closestCollider.gameObject.GetComponent<Unit>();
-                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;                       
+                            createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = closestCollider.gameObject;
                             createdBullet.GetComponent<Rigidbody2D>().AddForce((closestCollider.gameObject.transform.position - gameObject.transform.position).normalized * 15f, ForceMode2D.Impulse);
                             AudioManager.Play(AudioClipName.BurgerShot);
                         }
