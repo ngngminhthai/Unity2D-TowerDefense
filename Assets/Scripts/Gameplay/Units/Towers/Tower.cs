@@ -9,12 +9,12 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         [SerializeField]
         GameObject bullet;
-
+        public Animator animator;
         Timer cooldownTimerBullet;
         private bool finishedRotate = false;
         public static List<GameObject> colliders = new List<GameObject>();
 
-
+        public bool isAttack;
         private double damage;
         private double cooldown;
         private double range;
@@ -30,10 +30,12 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         protected void Initialize()
         {
+            
             var range = gameObject.AddComponent<CircleCollider2D>();
             range.radius = (float)Range;
             range.isTrigger = true;
             //cooldownTimerBullet = gameObject.AddComponent<Timer>();
+            
         }
 
 
@@ -80,6 +82,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                         if (!cooldownTimerBullet.Running && finishedRotate)
                         {
                             //Debug.Log("Shoot");
+                            isAttack = true;
                             cooldownTimerBullet.Duration = 1;
                             cooldownTimerBullet.Run();
                             GameObject createdBullet = Instantiate(bullet, transform.position, transform.rotation);
@@ -92,11 +95,16 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                             createdBullet.GetComponent<Rigidbody2D>().AddForce((closestCollider.gameObject.transform.position - gameObject.transform.position).normalized * 15f, ForceMode2D.Impulse);
                             AudioManager.Play(AudioClipName.BurgerShot);
                         }
+                        
                     }
+                    
                 }
             }
         }
-
+        void OnTriggerExit2D(Collider2D other)
+        {
+            isAttack = false;
+        }
 
         public abstract void Create(Vector2 buildPosition, GameObject gameObject);
 

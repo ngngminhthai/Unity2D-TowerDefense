@@ -14,6 +14,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         private void Start()
         {
+            animator.SetBool("isAttack", false);
             if (currentLevel == 1)
             {
                 Damage = ConfigurationUtils.MageTowerDamage;
@@ -33,6 +34,18 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
                 Range = ConfigurationUtils.MageTowerRange;
             }
             Initialize();
+        }
+        public void Update()
+        {
+
+            if (isAttack)
+            {
+                animator.SetBool("isAttack", true);
+            }
+            else
+            {
+                animator.SetBool("isAttack", false);
+            }
         }
     }
 }
