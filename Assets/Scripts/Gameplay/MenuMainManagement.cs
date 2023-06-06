@@ -1,5 +1,6 @@
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Gameplay.Units;
+using Assets.Scripts.Gameplay.Units.Defenders;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class MenuMainManagement : IntEventInvoker
     }
     public void NewGameButtonOnClickEvent()
     {
-       
+
         SceneManager.LoadScene("map");
     }
 
@@ -37,6 +38,7 @@ public class MenuMainManagement : IntEventInvoker
         //LoadSavedGame();
         isLoaded = true;
         SceneManager.LoadScene("map");
+        Tower.colliders.Clear();
     }
 
     public void QuitButtonOnClickEvent()
@@ -120,7 +122,7 @@ public class MenuMainManagement : IntEventInvoker
         for (int i = 0; i < TowerAttackList.Length; i++)
         {
             TowerInformation towerAttack = TowerAttackList[i].GetComponent<TowerInformation>();
-            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel }); 
+            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel });
         }
 
         // Serialize the list of objects into a Json string 
