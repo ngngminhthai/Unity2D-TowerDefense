@@ -42,6 +42,7 @@ public class ShopMenuManager : IntEventInvoker
 
     void Start()
     {
+        goldText.text = "Gold: 100";
         priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
         priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
 
@@ -53,6 +54,7 @@ public class ShopMenuManager : IntEventInvoker
         // checkgold
 
         EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
+        //goldText.text = "Gold: 100";
     }
 
     public void ExitMenu()
@@ -68,7 +70,7 @@ public class ShopMenuManager : IntEventInvoker
     // Update is called once per frame
     public void BuyArcher()
     {
-
+        //goldText 
         //Archery archy = GetComponent<Archery>();
         //Gold.MinusGold(ManageInfor.ArcheryStrength);
         unityEvents[EventName.GoldChangeEvent].Invoke(Caculate(ManageInfor.ArcheryStrength));

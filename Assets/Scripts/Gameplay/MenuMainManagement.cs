@@ -14,18 +14,18 @@ public class MenuMainManagement : IntEventInvoker
     public void Start()
     {
 
-        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
-        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+        unityEvents.Add(EventName.ResetGold, new ResetGold());
+        EventManager.AddInvoker(EventName.ResetGold, this);
         // checkgold
 
         //EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
     }
-    public void ResetGold(int value)
+    public void ToResetGold(int value)
     {
-        int gold = -1 * value;
+        //int gold = -1 * value;
 
 
-        unityEvents[EventName.GoldChangeEvent].Invoke(2);
+        unityEvents[EventName.ResetGold].Invoke(0);
     }
     public void NewGameButtonOnClickEvent()
     {
