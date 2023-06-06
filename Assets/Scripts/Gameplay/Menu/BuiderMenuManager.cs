@@ -97,6 +97,7 @@ public class BuiderMenuManager : IntEventInvoker
         unityEvents[EventName.GoldChangeEvent].Invoke(-80);
         Tower tower = _towerFactory.GetTower("Archery");
         tower.Create(buildPosition, prefabArcheryTower);
+        canvas.gameObject.SetActive(false);
         DestroyBuilderBase();
 
     }
@@ -105,13 +106,16 @@ public class BuiderMenuManager : IntEventInvoker
         unityEvents[EventName.GoldChangeEvent].Invoke(-80);
         Tower tower = _towerFactory.GetTower("Mage");
         tower.Create(buildPosition, prefabMageTower);
+        canvas.gameObject.SetActive(false);
         DestroyBuilderBase();
+
     }
     public void BuyTowerAOE()
     {
         unityEvents[EventName.GoldChangeEvent].Invoke(-80);
         Tower tower = _towerFactory.GetTower("AOE");
         tower.Create(buildPosition, prefabAOETower);
+        canvas.gameObject.SetActive(false);
         DestroyBuilderBase();
     }
 

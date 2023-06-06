@@ -1,4 +1,4 @@
-using Assets.Scripts.Gameplay.Units;
+Ôªøusing Assets.Scripts.Gameplay.Units;
 using UnityEngine;
 
 public class GameClickManager : MonoBehaviour
@@ -35,11 +35,11 @@ public class GameClickManager : MonoBehaviour
                 //Debug.Log(target);
 
 
-                //Neu (target.CompareTag("Attacker") || target.CompareTag("Defender")) thÏ moii xu l˝( c·i n‡y sau ae code ho‡n chinh bo sung sau )
-                // Kiem tra neu ?oi t??ng ?a ?uoc ch?n tr??c ?Û v‡ khÙng phai l‡ ?oi t??ng hi?n t?i
+                //Neu (target.CompareTag("Attacker") || target.CompareTag("Defender")) th√¨ moii xu l√Ω( c√°i n√†y sau ae code ho√†n chinh bo sung sau )
+                // Kiem tra neu ?oi t??ng ?a ?uoc ch?n tr??c ?√≥ v√† kh√¥ng phai l√† ?oi t??ng hi?n t?i
                 if (selectedTarget != null && selectedTarget != target)
                 {
-                    // An thanh m·u cua doi tuong trc dÛ
+                    // An thanh m√°u cua doi tuong trc d√≥
                     //HideHealthBar(selectedTarget);
                     if (selectedTarget != null && selectedTarget.GetComponent<Defender>() != null)
                         selectedTarget.GetComponent<Defender>().selection.GetComponent<SpriteRenderer>().enabled = false;
@@ -80,21 +80,23 @@ public class GameClickManager : MonoBehaviour
                         selectedTarget.GetComponent<AgentMoventMent>().SetTargetPosition();
                 }
 
-
-                if (target.gameObject.GetComponents<CircleCollider2D>()[0] == hit.collider || target.gameObject.tag == "attackers")
+                if (target.gameObject.GetComponents<CircleCollider2D>().Length > 0)
                 {
-                    // Luu doi tuong duoc chon
-                    selectedTarget = target;
-                    // Hien thi thanh m·u cua doi tuonng hien tai
-                    //ShowHealthBar(selectedTarget);
-                    if (selectedTarget != null && selectedTarget.GetComponent<Defender>() != null)
-                        selectedTarget.GetComponent<Defender>().selection.GetComponent<SpriteRenderer>().enabled = true;
+
+                    if (target.gameObject.GetComponents<CircleCollider2D>()[0] == hit.collider || target.gameObject.tag == "attackers")
+                    {
+                        // Luu doi tuong duoc chon
+                        selectedTarget = target;
+                        // Hien thi thanh m√°u cua doi tuonng hien tai
+                        //ShowHealthBar(selectedTarget);
+                        if (selectedTarget != null && selectedTarget.GetComponent<Defender>() != null)
+                            selectedTarget.GetComponent<Defender>().selection.GetComponent<SpriteRenderer>().enabled = true;
+                    }
+
+
+
                 }
-                
-                
-                
-                
-                
+
                 //selectedTarget = null;
 
             }

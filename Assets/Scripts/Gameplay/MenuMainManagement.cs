@@ -5,11 +5,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuMainManagement : MonoBehaviour
+public class MenuMainManagement : IntEventInvoker
 {
 
     public static bool isLoaded = false;
 
+    public void Start()
+    {
+
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+        // checkgold
+
+        EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
+    }
+    public void ResetGold(int value)
+    {
+        int gold = -1 * value;
+
+
+        unityEvents[EventName.GoldChangeEvent].Invoke(gold);
+    }
     public void NewGameButtonOnClickEvent()
     {
         // Task 34 : Xóa toàn b? d? li?u and new game 
