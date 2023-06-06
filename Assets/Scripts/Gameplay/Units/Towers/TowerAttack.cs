@@ -38,7 +38,8 @@ public class TowerAttack : MonoBehaviour
                 DoesEffectBehaviour();
             }
 
-            Tower.colliders.Remove(targetGameObjectPrefab);
+            //Tower.colliders.Remove(targetGameObjectPrefab);
+            Tower.colliders.Clear();
             Destroy(gameObject);
         }
     }

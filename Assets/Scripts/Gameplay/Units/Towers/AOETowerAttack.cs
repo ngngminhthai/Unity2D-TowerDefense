@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Gameplay.Units.Defenders;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Units.Towers
 {
@@ -27,7 +26,7 @@ namespace Assets.Scripts.Gameplay.Units.Towers
                 {
                     unit.TakeDamage(Damage);
                     var animation = GameObject.Instantiate(rangeAnimation, gameObject.transform.position, Quaternion.identity);
-                    Tower.colliders.Remove(collider.gameObject);
+                    //Tower.colliders.Remove(collider.gameObject);
                     //OnDrawGizmosSelected();
                 }
             }
