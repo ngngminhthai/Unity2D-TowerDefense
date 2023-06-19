@@ -23,7 +23,7 @@ public class Gold : IntEventInvoker
     void Start()
     {
 
-        totalGold = 100;
+        totalGold = 1000;
 
         EventManager.AddListener(EventName.GoldChangeEvent, PlusGold);
         EventManager.AddListener(EventName.ResetGold, Reset);
