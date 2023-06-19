@@ -10,6 +10,9 @@ namespace Assets.Scripts.Gameplay.Units
         public bool isAccessMovingTower;
         // Chi co 1 tru thi khai bao day luon 
         public GameObject tower;
+        private float originalSpeed;
+
+
 
         NavMeshAgent agent;
         void Awake()
@@ -21,6 +24,10 @@ namespace Assets.Scripts.Gameplay.Units
             // init target to tower
             agent.SetDestination(tower.transform.position);
             isAccessMovingTower = false;
+
+
+            originalSpeed = agent.speed;  // Store original speed
+
         }
 
         // Update is called once per frame
@@ -55,6 +62,26 @@ namespace Assets.Scripts.Gameplay.Units
             if (agent != null)
             {
                 agent.isStopped = false;
+            }
+        }
+        public float GetSpeed()
+        {
+            return agent.speed;
+        }
+
+        public void AdjustSpeed(float speed)
+        {
+            if (agent != null)
+            {
+                agent.speed = speed;
+            }
+        }
+
+        public void ResetSpeed()
+        {
+            if (agent != null)
+            {
+                agent.speed = originalSpeed;
             }
         }
     }
