@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Assets.Scripts.Gameplay.Units
@@ -10,7 +11,9 @@ namespace Assets.Scripts.Gameplay.Units
         public bool isAccessMovingTower;
         // Chi co 1 tru thi khai bao day luon 
         public GameObject tower;
-        private float originalSpeed;
+        public float originalSpeed;
+        Timer timer;
+        public bool isSlowed;
 
 
 
@@ -24,7 +27,7 @@ namespace Assets.Scripts.Gameplay.Units
             // init target to tower
             agent.SetDestination(tower.transform.position);
             isAccessMovingTower = false;
-
+            timer = gameObject.AddComponent<Timer>();
 
             originalSpeed = agent.speed;  // Store original speed
 
@@ -76,6 +79,37 @@ namespace Assets.Scripts.Gameplay.Units
                 agent.speed = speed;
             }
         }
+
+        public GameObject AdjustSpeed(float speed, float duration, GameObject effectPrefab)
+        {
+            if (agent != null && !isSlowed)
+            {
+                agent.speed = speed;
+                isSlowed = true;
+                GameObject poison = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+                poison.transform.parent = transform;
+                StartCoroutine(ResetSpeedAfterTime(duration, poison));
+                return poison;
+            }
+            return null;
+        }
+
+
+        IEnumerator ResetSpeedAfterTime(float delay, GameObject poison)
+        {
+            // Wait for the specified delay
+            yield return new WaitForSeconds(delay);
+
+            // Reset the speed of the monster to original
+            ResetSpeed();
+            isSlowed = false;
+
+            // Destroy the poison GameObject
+            Destroy(poison);
+        }
+
+
+
 
         public void ResetSpeed()
         {
