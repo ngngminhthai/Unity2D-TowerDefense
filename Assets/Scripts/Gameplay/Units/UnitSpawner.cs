@@ -22,6 +22,8 @@ public class UnitSpawner : MonoBehaviour
     GameObject prefabMinotaur;
     [SerializeField]
     GameObject prefabOrge;
+    [SerializeField]
+    GameObject preafabBoss;
     //[SerializeField]
     //TextMeshProUGUI countWave;
     public int StrengthPerWave { get; set; }
@@ -42,6 +44,12 @@ public class UnitSpawner : MonoBehaviour
     private bool isEndWave = false;
     private int level = 1;
     Timer timer;
+
+    // condition to generate boss
+    public Boolean TriggerCondition()
+    {
+        return false;
+    }
 
     void Start()
     {
@@ -78,42 +86,49 @@ public class UnitSpawner : MonoBehaviour
         AccumStrength = 0;
         while (true)
         {
-            TypeUnit = UnityEngine.Random.Range(1, 5);
-            switch (TypeUnit)
+            if (TriggerCondition())
             {
-                case 1:
-                    GameObject Instance = GenerateUnit(prefabHarpy);
-                    attackersQueue.Enqueue(Instance);
-					Harpy harpy = Instance.GetComponent<Harpy>();
-                    harpy.level = level;
-                    harpy.Start();
-                    StrengthPerUnit = (harpy.Damage + harpy.HitPoints / 2) + (1 + harpy.Speed / 3);
-                    break;
-                case 2:
-                    GameObject Instance1 = GenerateUnit(prefabBanshee);
-					attackersQueue.Enqueue(Instance1);
-					Banshee banshee = Instance1.GetComponent<Banshee>();
-                    banshee.level = level;
-                    banshee.Start();
-                    StrengthPerUnit = (banshee.Damage + banshee.HitPoints / 2) + (1 + banshee.Speed / 3);
-                    break;
-                case 3:
-                    GameObject Instance2 = GenerateUnit(prefabMinotaur);
-					attackersQueue.Enqueue(Instance2);
-					Monitor minotaur = Instance2.GetComponent<Monitor>();
-                    minotaur.level = level;
-                    minotaur.Start();
-                    StrengthPerUnit = (minotaur.Damage + minotaur.HitPoints / 2) + (1 + minotaur.Speed / 3);
-                    break;
-                case 4:
-                    GameObject Instance3 = GenerateUnit(prefabOrge);
-					attackersQueue.Enqueue(Instance3);
-					Ogre ogre = Instance3.GetComponent<Ogre>();
-                    ogre.level = level;
-                    ogre.Start();
-                    StrengthPerUnit = (ogre.Damage + ogre.HitPoints / 2) + (1 + ogre.Speed / 3) + 5;
-                    break;
-                default: break;
+
+            }
+            else
+            {
+                TypeUnit = UnityEngine.Random.Range(1, 5);
+                switch (TypeUnit)
+                {
+                    case 1:
+                        GameObject Instance = GenerateUnit(prefabHarpy);
+                        attackersQueue.Enqueue(Instance);
+                        Harpy harpy = Instance.GetComponent<Harpy>();
+                        harpy.level = level;
+                        harpy.Start();
+                        StrengthPerUnit = (harpy.Damage + harpy.HitPoints / 2) + (1 + harpy.Speed / 3);
+                        break;
+                    case 2:
+                        GameObject Instance1 = GenerateUnit(prefabBanshee);
+                        attackersQueue.Enqueue(Instance1);
+                        Banshee banshee = Instance1.GetComponent<Banshee>();
+                        banshee.level = level;
+                        banshee.Start();
+                        StrengthPerUnit = (banshee.Damage + banshee.HitPoints / 2) + (1 + banshee.Speed / 3);
+                        break;
+                    case 3:
+                        GameObject Instance2 = GenerateUnit(prefabMinotaur);
+                        attackersQueue.Enqueue(Instance2);
+                        Monitor minotaur = Instance2.GetComponent<Monitor>();
+                        minotaur.level = level;
+                        minotaur.Start();
+                        StrengthPerUnit = (minotaur.Damage + minotaur.HitPoints / 2) + (1 + minotaur.Speed / 3);
+                        break;
+                    case 4:
+                        GameObject Instance3 = GenerateUnit(prefabOrge);
+                        attackersQueue.Enqueue(Instance3);
+                        Ogre ogre = Instance3.GetComponent<Ogre>();
+                        ogre.level = level;
+                        ogre.Start();
+                        StrengthPerUnit = (ogre.Damage + ogre.HitPoints / 2) + (1 + ogre.Speed / 3) + 5;
+                        break;
+                    default: break;
+                }
             }
             AccumStrength += StrengthPerUnit;
             //break;
@@ -134,15 +149,15 @@ public class UnitSpawner : MonoBehaviour
     }
     public GameObject GenerateUnit(GameObject prefab)
     {
-	    //public float max_x = 28;
-	    //public float min_x = -28;
-	    //public float min_y = -14;
-	    //public float max_y = 14;
-	    float randomX, randomY;
+        //public float max_x = 28;
+        //public float min_x = -28;
+        //public float min_y = -14;
+        //public float max_y = 14;
+        float randomX, randomY;
         randomX = (float)(rand.NextDouble() * 2 * max_x - max_x);
         if (randomX > max_x || randomX < min_x)
         {
-            randomY = (float)(rand.NextDouble() * (max_y-min_y) + (min_y));
+            randomY = (float)(rand.NextDouble() * (max_y - min_y) + (min_y));
         }
         else
         {
