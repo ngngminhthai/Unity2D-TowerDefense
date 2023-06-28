@@ -93,7 +93,18 @@ namespace Assets.Scripts.Gameplay.Units
             }
             return null;
         }
-
+        public void AdjustSpeed(float speed, float duration)
+        {
+            if (agent != null && !isSlowed)
+            {
+                agent.speed = speed;
+                isSlowed = true;
+            
+                StartCoroutine(ResetSpeedAfterTime(duration));
+               
+            }
+         
+        }
 
         IEnumerator ResetSpeedAfterTime(float delay, GameObject poison)
         {
@@ -109,7 +120,18 @@ namespace Assets.Scripts.Gameplay.Units
         }
 
 
+        IEnumerator ResetSpeedAfterTime(float delay)
+        {
+            // Wait for the specified delay
+            yield return new WaitForSeconds(delay);
 
+            // Reset the speed of the monster to original
+            ResetSpeed();
+            isSlowed = false;
+
+            // Destroy the poison GameObject
+           
+        }
 
         public void ResetSpeed()
         {
