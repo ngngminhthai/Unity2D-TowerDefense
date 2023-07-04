@@ -58,6 +58,34 @@ public class ManageInfor : MonoBehaviour
 
     }
 
+    // Xena
+    public static float XenaDamagePer = 0.45f;
+    public static float XenaHitpointsPer = 0.45f;
+
+
+
+
+    public static float XenaRange = 3f;
+    public static float XenaSelectedRange = 0.5f;
+    public static float XenaDefautDamage = 7f;
+    public static float XenaDefautHitpoint = 50f;
+
+    public static float XenaDamage = 7f;
+    public static float XenaHitPoint = 50f;
+    public static float XenaSpeed = 5f;
+
+    public static float XenaStrength = (XenaDamage + XenaHitPoint / 2) + (1 + XenaSpeed / 3);
+
+    public static int XenaLevel = 0;
+    public static void LevelUpXena()
+    {
+        XenaLevel = XenaLevel + 1;
+        XenaDamage = XenaDefautDamage + XenaDefautDamage * XenaDamagePer * XenaLevel;
+        XenaHitPoint = XenaDefautHitpoint + XenaDefautHitpoint * XenaHitpointsPer * XenaLevel;
+
+        XenaStrength = (XenaHitPoint / 2 + XenaDamage) + (1 + XenaSpeed / 3);
+    }
+
     // Banshee
     public static float BansheeRange = 3f;
     public static float BansheeBaseHitPoints = 30f;
