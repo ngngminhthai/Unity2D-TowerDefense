@@ -34,7 +34,7 @@ namespace Assets.Scripts.Gameplay.Units
         //}
         public void OnTriggerStay2D(Collider2D other)
         {
-            if (gameObject.GetComponent<Warrion>() is Warrion && other.GetComponent<Harpy>() is Harpy)
+            if ((gameObject.GetComponent<Warrion>() is Warrion || gameObject.GetComponent<Xena>() is Xena ) && other.GetComponent<Harpy>() is Harpy)
             {
 
             }
