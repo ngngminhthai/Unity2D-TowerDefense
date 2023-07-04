@@ -19,5 +19,16 @@ namespace Assets.Scripts.Gameplay.Units.Towers
                     throw new ArgumentException("Invalid tower type");
             }
         }
+
+        public NonAttackTower GetNonAttackTower(string TowerType)
+        {
+            switch (TowerType)
+            {
+                case "Milatary":
+                    return new MilitaryTower();
+                default:
+                    throw new ArgumentException("Invalid tower type");
+            }
+        }
     }
 }

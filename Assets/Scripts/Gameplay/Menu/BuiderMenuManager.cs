@@ -62,7 +62,7 @@ public class BuiderMenuManager : IntEventInvoker
         EventManager.AddInvoker(EventName.GoldChangeEvent, this);
         // checkgold
 
-       EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
+        EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
 
 
         // goldText.text = "Gold:" + Gold.TotalGold;
@@ -88,7 +88,7 @@ public class BuiderMenuManager : IntEventInvoker
 
     public void Update()
     {
-       
+
 
     }
     // Update is called once per frame
@@ -114,6 +114,16 @@ public class BuiderMenuManager : IntEventInvoker
     {
         unityEvents[EventName.GoldChangeEvent].Invoke(-80);
         Tower tower = _towerFactory.GetTower("AOE");
+        tower.Create(buildPosition, prefabAOETower);
+        canvas.gameObject.SetActive(false);
+        DestroyBuilderBase();
+    }
+
+
+    public void BuyMilataryTower()
+    {
+        unityEvents[EventName.GoldChangeEvent].Invoke(-80);
+        NonAttackTower tower = _towerFactory.GetNonAttackTower("Milatary");
         tower.Create(buildPosition, prefabAOETower);
         canvas.gameObject.SetActive(false);
         DestroyBuilderBase();
