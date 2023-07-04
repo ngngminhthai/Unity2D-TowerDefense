@@ -165,6 +165,12 @@ public class ManageInfor : MonoBehaviour
         WarriorHitPoint = 50f;
         WarriorSpeed = 5f;
 
-        WarriorStrength = (WarriorDamage + WarriorHitPoint / 2) + (1 + WarriorSpeed / 3);
+        WarriorStrength = (XenaDamage + XenaHitPoint / 2) + (1 + XenaSpeed / 3);
+
+        XenaDamage = 7f;
+        XenaHitPoint = 50f;
+        XenaSpeed = 5f;
+
+        XenaStrength = (XenaDamage + XenaHitPoint / 2) + (1 + XenaSpeed / 3);
     }
 }
