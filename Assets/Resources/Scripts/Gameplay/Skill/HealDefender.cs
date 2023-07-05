@@ -8,12 +8,15 @@ public class HealDefender : MonoBehaviour
     public float maxHealth = 10;
     public float healingRate = 2;
     public float radius = 7.5f;
+    Timer timer;
 
-  
     private float currentHealth;
 
     void Start()
     {
+        timer = gameObject.AddComponent<Timer>();
+        timer.Duration = 3;
+        timer.Run();
         currentHealth = maxHealth;
         InvokeRepeating("HealObjects", 0.0f, 2f);
     }
@@ -37,6 +40,14 @@ public class HealDefender : MonoBehaviour
                 }
                
             }
+        }
+    }
+    private void Update()
+    {
+        if (timer.Finished)
+        {
+           
+            Destroy(gameObject);
         }
     }
 

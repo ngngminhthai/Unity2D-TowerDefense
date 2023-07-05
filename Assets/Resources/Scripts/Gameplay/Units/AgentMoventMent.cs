@@ -125,4 +125,18 @@ public class AgentMoventMent : MonoBehaviour
         agent.isStopped = false;*/
 
     }
+    public float GetSpeed()
+    {
+        return agent.speed;
+    }
+
+    public void AdjustSpeed(float speed)
+    {
+        if (agent != null)
+        {
+            agent.speed = speed;
+        }
+    }
+
+
 }
