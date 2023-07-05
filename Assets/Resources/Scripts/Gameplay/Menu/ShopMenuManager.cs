@@ -16,36 +16,44 @@ public class ShopMenuManager : IntEventInvoker
     GameObject prefabArchery;
     [SerializeField]
     GameObject prefabWarrior;
-
+    [SerializeField]
+    GameObject prefabXena; 
 
     [SerializeField]
     TextMeshProUGUI priceArchery;
     [SerializeField]
     TextMeshProUGUI priceWarrior;
+    [SerializeField]
+    TextMeshProUGUI priceXena; 
 
     //level
     [SerializeField]
     TextMeshProUGUI levelArchery;
     [SerializeField]
     TextMeshProUGUI levelWarrior;
+    [SerializeField]
+    TextMeshProUGUI levelXena; 
 
     //btn
     [SerializeField]
     Button btnBuyArchery;
     [SerializeField]
     Button btnBuyWarrior;
+    [SerializeField]
+    Button btnBuyXena; 
 
     [SerializeField]
     Button btnUpdateArchery;
     [SerializeField]
     Button btnUpdateWarrior;
-
+    [SerializeField]
+    Button btnUpdateXena; 
     void Start()
     {
         goldText.text = "Gold: 100";
         priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
         priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
-
+        priceXena.text = "Price: " + RoundFloat(ManageInfor.XenaStrength); 
        // goldText.text = "Gold:" + Gold.TotalGold;
         canvas.gameObject.SetActive(false);
 
@@ -85,6 +93,12 @@ public class ShopMenuManager : IntEventInvoker
         Vector3 screenPosition = new Vector3(0, 0, 2);
         GameObject spaw = Instantiate<GameObject>(prefabWarrior, screenPosition, Quaternion.identity);
     }
+    public void BuyXena()
+    {
+        unityEvents[EventName.GoldChangeEvent].Invoke(Caculate(ManageInfor.XenaStrength));
+        Vector3 screenPosition = new Vector3(0, 0, 2);
+        GameObject spaw = Instantiate<GameObject>(prefabXena, screenPosition, Quaternion.identity);
+    }
     public void UpdateArcher()
     {
 
@@ -102,6 +116,14 @@ public class ShopMenuManager : IntEventInvoker
         
         //  Gold.MinusGold(ManageInfor.WarriorStrength);
         levelWarrior.text = "Level: " + ManageInfor.WarriorLevel;
+    }
+    public void UpdateXena()
+    {
+        unityEvents[EventName.GoldChangeEvent].Invoke(Caculate(ManageInfor.XenaStrength));
+        ManageInfor.LevelUpXena();
+
+        //  Gold.MinusGold(ManageInfor.WarriorStrength);
+        levelXena.text = "Level: " + ManageInfor.XenaLevel;
     }
     public int RoundFloat(float value)
     {
@@ -135,8 +157,20 @@ public class ShopMenuManager : IntEventInvoker
             btnBuyWarrior.interactable = true;
             btnUpdateWarrior.interactable = true;
         }
+
+        if (value < ManageInfor.XenaStrength)
+        {
+            btnBuyXena.interactable = false; 
+            btnUpdateXena.interactable = false;
+        }
+        else
+        {
+            btnBuyXena.interactable = true;
+            btnUpdateXena.interactable = true;
+        }
         priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
         priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
+        priceXena.text = "Price: " + RoundFloat(ManageInfor.XenaStrength);
     }
     public int Caculate(float value)
     {
