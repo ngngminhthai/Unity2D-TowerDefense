@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Gameplay.Units;
+using Assets.Scripts.Gameplay.Units.Attackers;
 using System;
 using System.Collections;
 using TMPro;
@@ -22,6 +23,8 @@ public class UnitSpawner : MonoBehaviour
     GameObject prefabMinotaur;
     [SerializeField]
     GameObject prefabOrge;
+    [SerializeField]
+    GameObject prefabGhost; 
     [SerializeField]
     GameObject preafabBoss;
     //[SerializeField]
@@ -92,7 +95,7 @@ public class UnitSpawner : MonoBehaviour
             }
             else
             {
-                TypeUnit = UnityEngine.Random.Range(1, 5);
+                TypeUnit = UnityEngine.Random.Range(1, 6);
                 switch (TypeUnit)
                 {
                     case 1:
@@ -127,6 +130,14 @@ public class UnitSpawner : MonoBehaviour
                         ogre.Start();
                         StrengthPerUnit = (ogre.Damage + ogre.HitPoints / 2) + (1 + ogre.Speed / 3) + 5;
                         break;
+                    case 5:
+                        GameObject Instance4 = GenerateUnit(prefabGhost);
+                        attackersQueue.Enqueue(Instance4);
+                        Ghost ghost = Instance4.GetComponent<Ghost>();
+                        ghost.level = level;
+                        ghost.Start();
+                        StrengthPerUnit = (ghost.Damage + ghost.HitPoints / 2) + (1 + ghost.Speed / 3);
+                        break;
                     default: break;
                 }
             }
@@ -146,6 +157,8 @@ public class UnitSpawner : MonoBehaviour
         orge.LevelUp();
         Monitor mage = prefabMinotaur.GetComponent<Monitor>();
         mage.LevelUp();
+        Ghost ghost = prefabGhost.GetComponent<Ghost>();
+        ghost.LevelUp(); 
     }
     public GameObject GenerateUnit(GameObject prefab)
     {

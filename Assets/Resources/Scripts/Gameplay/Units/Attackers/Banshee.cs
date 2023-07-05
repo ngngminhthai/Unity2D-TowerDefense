@@ -10,10 +10,13 @@ public class Banshee : Attacker
     {
     }
 
-
+    Timer TimerObject;
     public Animator animator;
     public int level;
- 
+
+    //[SerializeField]
+    //GameObject bullet;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -40,6 +43,10 @@ public class Banshee : Attacker
 
 
         Initialize(ManageInfor.BansheeDamagePer, ManageInfor.BansheeHitPointPer, 0.1f);
+
+        TimerObject = gameObject.AddComponent<Timer>();
+        TimerObject.Duration = 5;
+        TimerObject.Run();
     }
 
     // Update is called once per frame
@@ -56,6 +63,12 @@ public class Banshee : Attacker
           
 
         }
+        if (TimerObject.Finished)
+        {
+            AttackSkillDefender();
+            TimerObject.Duration = 5;
+            TimerObject.Run();
+        }
     }
     protected override void Die()
     {
@@ -64,8 +77,39 @@ public class Banshee : Attacker
         unityEvents[EventName.GoldChangeEvent].Invoke(value);
         base.Die();
         // Gold.PlusGold(value);
+    }
+    void AttackSkillDefender()
+    {
+        //GameObject[] defenders = GameObject.FindGameObjectsWithTag("defenders");
 
+        //GameObject nearestDefender = null;
+        //float nearestDistance = Mathf.Infinity;
 
+        //foreach (GameObject defender in defenders)
+        //{
+        //    float distance = Vector3.Distance(transform.position, defender.transform.position);
 
+        //    // N?u kho?ng cách nh? h?n ph?m vi b?n và g?n h?n ng??i g?n nh?t hi?n t?i
+        //    if (distance <= 100f && distance < nearestDistance)
+        //    {
+        //        nearestDefender = defender;
+        //        nearestDistance = distance;
+        //    }
+        //}
+
+        //// Ki?m tra xem có defender nào trong ph?m vi hay không
+        //if (nearestDefender != null)
+        //{
+        //    // B?n vào defender g?n nh?t
+        //    Vector2 direction = nearestDefender.transform.position;
+        //    Vector2 directionTarget = direction - new Vector2(transform.position.x, transform.position.y);
+        //    float angle = Mathf.Atan2(directionTarget.y, directionTarget.x) * Mathf.Rad2Deg;
+        //    Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //    var atkBullet = GameObject.Instantiate(bullet, direction, Quaternion.identity);
+        //    atkBullet.transform.rotation = rotation;
+        //    atkBullet.GetComponent<Rigidbody2D>().AddForce((nearestDefender.transform.position - transform.position).normalized * 15f, ForceMode2D.Impulse);
+        //    AudioManager.Play(AudioClipName.BurgerShot); 
+        //}
     }
 }
+
