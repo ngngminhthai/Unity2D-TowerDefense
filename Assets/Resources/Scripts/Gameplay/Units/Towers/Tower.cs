@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Resources.Scripts.Gameplay.Units.Towers;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Gameplay.Units.Defenders
@@ -41,7 +42,12 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            AttackMonsterWithLowestHitPoint(collision);
+            if (TowerModeAttackManager.Mode == 1)
+                AttackMonsterWithLowestHitPoint(collision);
+            else
+            {
+                AttackClosestMonster(collision);
+            }
         }
 
         void AttackMonsterWithLowestHitPoint(Collider2D collision)
