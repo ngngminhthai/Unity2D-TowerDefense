@@ -17,10 +17,7 @@ namespace Assets.Scripts.Gameplay.Units.Towers
                 AgentMoventMentMonster agent = targetGameObjectPrefab.GetComponent<AgentMoventMentMonster>();
                 if (agent != null && !agent.isAccessMovingTower)
                 {
-                    float speed = agent.GetSpeed();
-                    //agent.AdjustSpeed((float)0.5);
                     agent.AdjustSpeed((float)0.5, 3.0f, posionPrefab);
-                    float speedAfter = agent.GetSpeed();
                 }
             }
         }
