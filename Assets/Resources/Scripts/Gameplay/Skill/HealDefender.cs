@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class HealDefender : MonoBehaviour
     // Start is called before the first frame update
     public float maxHealth = 10;
     public float healingRate = 2;
-    public float radius = 7.5f;
+    public float radius = 1f;
     Timer timer;
 
     private float currentHealth;
@@ -15,7 +15,7 @@ public class HealDefender : MonoBehaviour
     void Start()
     {
         timer = gameObject.AddComponent<Timer>();
-        timer.Duration = 3;
+        timer.Duration = 10;
         timer.Run();
         currentHealth = maxHealth;
         InvokeRepeating("HealObjects", 0.0f, 2f);
@@ -25,11 +25,12 @@ public class HealDefender : MonoBehaviour
     {
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-        if (colliders.Length > 0) Debug.Log("x");
+        if (colliders.Length > 0) ;
         foreach (Collider2D collider in colliders)
         {
             if (collider.gameObject.CompareTag("defenders"))
             {
+                Debug.Log("x");
                 Unit unit = collider.GetComponent<Unit>();
                 if (unit != null)
                 {
