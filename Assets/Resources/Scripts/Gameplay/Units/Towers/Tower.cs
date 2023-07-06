@@ -42,13 +42,70 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (TowerModeAttackManager.Mode == 1)
-                AttackMonsterWithLowestHitPoint(collision);
+            GameObject monster = collision.gameObject;
+            // if selected monster is in range, attack it
+            if (MonsterTargetClickManager.SelectedMonster != null && MonsterTargetClickManager.SelectedMonster == monster)
+            {
+                AttackSelectedMonster(collision);
+                Debug.Log("Attack target monster");
+            }
+            // else, follow original behaviors
             else
             {
-                AttackClosestMonster(collision);
+                Debug.Log("Attack others monster");
+
+                if (TowerModeAttackManager.Mode == 1)
+                    AttackMonsterWithLowestHitPoint(collision);
+                else
+                {
+                    AttackClosestMonster(collision);
+                }
             }
         }
+
+        void AttackSelectedMonster(Collider2D collision)
+        {
+
+            GameObject targetAttacker = collision.gameObject;
+
+            // If the target attacker is not null then rotate the gun to target direction and attack
+            if (targetAttacker != null)
+            {
+                float angle = Mathf.Atan2(targetAttacker.transform.position.y - transform.position.y, targetAttacker.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+                targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                float angleDiff = Quaternion.Angle(transform.rotation, targetRotation);
+
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10);
+
+                if (angleDiff <= 1)
+                {
+                    finishedRotate = true;
+                }
+                else
+                {
+                    finishedRotate = false;
+                }
+
+                // If cooldown is already and the gun is rotate successfully to the direction of the target then shoot
+                if (!cooldownTimerBullet.Running && finishedRotate)
+                {
+                    isAttack = true;
+                    cooldownTimerBullet.Duration = 1;
+                    cooldownTimerBullet.Run();
+                    GameObject createdBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    createdBullet.transform.rotation = targetRotation;
+                    createdBullet.GetComponent<TowerAttack>().Damage = (float)Damage;
+                    createdBullet.GetComponent<TowerAttack>().sourceGameObject = gameObject;
+                    createdBullet.GetComponent<TowerAttack>().targetDirection = targetAttacker.transform.position;
+                    createdBullet.GetComponent<TowerAttack>().targetGameObject = targetAttacker.GetComponent<Unit>();
+                    createdBullet.GetComponent<TowerAttack>().targetGameObjectPrefab = targetAttacker;
+                    createdBullet.GetComponent<Rigidbody2D>().AddForce((targetAttacker.transform.position - transform.position).normalized * 15f, ForceMode2D.Impulse);
+                    AudioManager.Play(AudioClipName.BurgerShot);
+                }
+            }
+
+        }
+
 
         void AttackMonsterWithLowestHitPoint(Collider2D collision)
         {
@@ -57,7 +114,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
             {
                 // Each attacker has two colliders, one for trigger to world physics, and one to demonstrate their attack range
                 // Check if the collider is the first collider then continue logic
-                if (collision.gameObject.GetComponents<CircleCollider2D>()[1] == collision)
+                if (collision.gameObject.GetComponents<CircleCollider2D>()[0] == collision)
                 {
                     float minHitPoints = float.MaxValue;
                     GameObject weakestAttacker = null;
@@ -127,7 +184,7 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
             if (collision.gameObject.CompareTag("attackers"))
             {
                 //each attacker has two colliders, one for trigger to world physics, and one to demonstrate their attack range, check if the collider is the first collider then continue logic
-                if (collision.gameObject.GetComponents<CircleCollider2D>()[1] == collision)
+                if (collision.gameObject.GetComponents<CircleCollider2D>()[0] == collision)
                 {
                     //find the closest attackers
                     float minDistance = float.MaxValue;
