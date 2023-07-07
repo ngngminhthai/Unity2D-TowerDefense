@@ -30,7 +30,7 @@ public class HealDefender : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("defenders"))
             {
-                Debug.Log("x");
+                //Debug.Log("x");
                 Unit unit = collider.GetComponent<Unit>();
                 if (unit != null)
                 {
