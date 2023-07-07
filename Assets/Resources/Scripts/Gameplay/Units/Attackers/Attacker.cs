@@ -138,9 +138,8 @@ namespace Assets.Scripts.Gameplay.Units
             }
         }
 
-        protected  override void Die()
+        protected override void Die()
         {
-           
             isAttack = false;
             // If the current target dies, stop attacking it
             if (currentTarget != null && currentTarget.HitPoints <= 0f)
@@ -150,9 +149,6 @@ namespace Assets.Scripts.Gameplay.Units
             AudioManager.Play(AudioClipName.BurgerDeath);
             base.Die();
             // Gold.PlusGold(value);
-          
-
-
         }
 
         public int GainedGold { get; set; }

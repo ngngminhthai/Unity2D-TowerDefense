@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class MonsterTargetClickManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject selectedPrefab;
+
+    private GameObject selectionMarker;
+
     public static GameObject SelectedMonster = null;
+
     private void Update()
     {
         // On mouse click
@@ -22,16 +28,36 @@ public class MonsterTargetClickManager : MonoBehaviour
                     // Deactivate animation on previous selected monster, if any
                     if (SelectedMonster != null && SelectedMonster.GetComponent<Attacker>() != null)
                     {
-                        //SelectedMonster.GetComponent<Attacker>().selectedAnimation.SetActive(false);
+                        DeselectSelection(); // call to deselect previous monster
                     }
 
                     // Set new selected monster
                     SelectedMonster = hit.collider.gameObject;
-                    Debug.Log("Currently selecte :" + SelectedMonster.name);
-                    // Activate animation on new selected monster
-                    //SelectedMonster.GetComponent<Attacker>().selectedAnimation.SetActive(true);
+                    Debug.Log("Currently selected :" + SelectedMonster.name);
+
+                    MarkSelection(); // call to mark new selected monster
                 }
             }
+        }
+    }
+
+    public void MarkSelection()
+    {
+        // Create a selection marker at the SelectedMonster's position
+        if (SelectedMonster != null)
+        {
+            selectionMarker = Instantiate(selectedPrefab, SelectedMonster.transform.position, Quaternion.identity);
+            selectionMarker.transform.parent = SelectedMonster.transform;
+            selectionMarker.name = "SelectionMarker"; // Setting a unique name
+        }
+    }
+
+    public void DeselectSelection()
+    {
+        // Remove the selection marker, if it exists
+        if (selectionMarker != null)
+        {
+            Destroy(selectionMarker);
         }
     }
 }
