@@ -4,8 +4,10 @@ namespace Assets.Scripts.Gameplay.Units
 {
     public class Attacker : Unit
     {
-        private Defender currentTarget;
 
+        private Defender currentTarget;
+        
+   
 
         public Attacker(int level) : base(level)
         {
@@ -158,6 +160,9 @@ namespace Assets.Scripts.Gameplay.Units
             float Strength = (MaxHitPoint / 2 + Damage) + (1 + Speed / 3);
             return Strength;
         }
+
+
+        // fire 
 
     }
 }

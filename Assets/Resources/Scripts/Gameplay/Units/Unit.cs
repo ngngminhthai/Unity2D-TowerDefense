@@ -165,6 +165,7 @@ public abstract class Unit : IntEventInvoker
         {
             Die();
         }
+        
     }
 
     protected virtual void Die()
