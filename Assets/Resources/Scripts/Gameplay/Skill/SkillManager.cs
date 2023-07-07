@@ -16,7 +16,8 @@ public class SkillManager : MonoBehaviour
     Button btnHypnosis;
     [SerializeField]
     Button btnHeal;
-
+    [SerializeField]
+    Button btnMeteo;
 
     [SerializeField]
     GameObject Hypnosis;
@@ -36,12 +37,17 @@ public class SkillManager : MonoBehaviour
     private bool isMoving = false;
 
 
+   
+
+
+  
     void Start()
     {
-
+   
         chooseSkill = 0;
         skillCanvas.gameObject.SetActive(false);
         mainCamera = Camera.main;
+     
     }
 
     // Update is called once per frame
@@ -62,7 +68,7 @@ public class SkillManager : MonoBehaviour
                         Instantiate(Hypnosis, worldPosition, Quaternion.identity);
                         break;
                     case 2:
-
+                        
 
 
                         Instantiate(Health, worldPosition, Quaternion.identity);
@@ -99,25 +105,36 @@ public class SkillManager : MonoBehaviour
     {
         chooseSkill = 1;
         skillCanvas.gameObject.SetActive(false);
+
+        StartCoroutine(StartChangingInteractable(btnHypnosis, 20f));
     }
     public void SkillHeal()
     {
         chooseSkill = 2;
         skillCanvas.gameObject.SetActive(false);
+        StartCoroutine(StartChangingInteractable(btnHeal, 5f));
     }
 
     public void SkillMeteo()
     {
         chooseSkill = 3;
         skillCanvas.gameObject.SetActive(false);
+
+        StartCoroutine(StartChangingInteractable(btnMeteo, 10f));
+
     }
 
     public void Exit()
     {
-        chooseSkill = 1;
+        chooseSkill = 0;
         skillCanvas.gameObject.SetActive(false);
     }
 
 
-
+    private IEnumerator StartChangingInteractable( Button btn,float waitTime)
+    {
+        btn.interactable = false;
+        yield return new WaitForSeconds(waitTime);
+        btn.interactable = true;
+    }
 }
