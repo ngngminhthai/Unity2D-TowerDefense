@@ -9,6 +9,8 @@ namespace Assets.Scripts.Gameplay.Units.Towers
         [SerializeField]
         GameObject warrionUnit;
 
+        int level = 1;
+
         private float summonCooldown = 4.0f;
         private int summonedUnits = 0;
         private int maxUnits = 3;
@@ -22,6 +24,9 @@ namespace Assets.Scripts.Gameplay.Units.Towers
 
         private void Start()
         {
+            if (level == 1) summonCooldown = 4.0f;
+            else if (level == 2) summonCooldown = 3.5f;
+            else if (level == 3) summonCooldown = 3.0f;
             timer = gameObject.AddComponent<Timer>();
             timer.Duration = summonCooldown;
             timer.Run();
@@ -34,6 +39,7 @@ namespace Assets.Scripts.Gameplay.Units.Towers
                 SummonDefenders();
                 timer.Duration = summonCooldown;
                 timer.Run();
+                Debug.Log("Spaw new unit");
             }
         }
 
