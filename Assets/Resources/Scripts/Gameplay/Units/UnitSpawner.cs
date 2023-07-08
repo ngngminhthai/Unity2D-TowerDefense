@@ -51,6 +51,7 @@ public class UnitSpawner : MonoBehaviour
     // condition to generate boss
     public Boolean TriggerCondition()
     {
+        if (CountWave == 3) return true;
         return false;
     }
 
