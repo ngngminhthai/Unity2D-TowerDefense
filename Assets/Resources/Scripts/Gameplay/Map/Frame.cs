@@ -14,7 +14,7 @@ public class Frame : MonoBehaviour
     void Start()
     {
         timer = gameObject.AddComponent<Timer>();
-        timer.Duration = 200;
+        timer.Duration = 3;
         timer.Run();
         
         InvokeRepeating("Effect", 0.0f, 2f);

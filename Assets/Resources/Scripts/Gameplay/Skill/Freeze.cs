@@ -12,7 +12,7 @@ public class Freeze : MonoBehaviour
     void Start()
     {
         timer = gameObject.AddComponent<Timer>();
-        timer.Duration = 20f;
+        timer.Duration = 3f;
         timer.Run();
         //Invoke("FreezeObjects", 0.0f);
 
