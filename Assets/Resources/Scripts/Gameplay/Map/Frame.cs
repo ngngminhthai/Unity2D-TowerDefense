@@ -5,19 +5,18 @@ using UnityEngine;
 public class Frame : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float maxHealth = 10;
+    
     public float healingRate = 2;
     public float radius = 2f;
     Timer timer;
 
-    private float currentHealth;
 
     void Start()
     {
         timer = gameObject.AddComponent<Timer>();
         timer.Duration = 200;
         timer.Run();
-        currentHealth = maxHealth;
+        
         InvokeRepeating("Effect", 0.0f, 2f);
     }
 
@@ -33,6 +32,7 @@ public class Frame : MonoBehaviour
                 Unit unit = collider.GetComponent<Unit>();
                 if (unit != null)
                 {
+
                     unit.TakeDamage(healingRate);
                     //var animation = GameObject.Instantiate(rangeAnimation, gameObject.transform.position, Quaternion.identity);
                     //Tower.colliders.Remove(collider.gameObject);
