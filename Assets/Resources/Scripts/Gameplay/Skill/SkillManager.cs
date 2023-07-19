@@ -106,13 +106,13 @@ public class SkillManager : MonoBehaviour
         chooseSkill = 1;
         skillCanvas.gameObject.SetActive(false);
 
-        StartCoroutine(StartChangingInteractable(btnHypnosis, 20f));
+        StartCoroutine(StartChangingInteractable(btnHypnosis, 40f));
     }
     public void SkillHeal()
     {
         chooseSkill = 2;
         skillCanvas.gameObject.SetActive(false);
-        StartCoroutine(StartChangingInteractable(btnHeal, 5f));
+        StartCoroutine(StartChangingInteractable(btnHeal, 20f));
     }
 
     public void SkillMeteo()
@@ -120,7 +120,7 @@ public class SkillManager : MonoBehaviour
         chooseSkill = 3;
         skillCanvas.gameObject.SetActive(false);
 
-        StartCoroutine(StartChangingInteractable(btnMeteo, 10f));
+        StartCoroutine(StartChangingInteractable(btnMeteo, 30f));
 
     }
 
