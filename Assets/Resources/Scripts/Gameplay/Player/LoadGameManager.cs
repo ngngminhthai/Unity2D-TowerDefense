@@ -1,3 +1,9 @@
+using Assets.Scripts.Gameplay;
+using Assets.Scripts.Gameplay.Units;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class LoadGameManager : IntEventInvoker
 {
     [SerializeField]
@@ -36,9 +42,9 @@ public class LoadGameManager : IntEventInvoker
     [SerializeField]
     public GameObject milataryTower;
 
-    public GameObject towerPrefab;
     //[SerializeField]
     //TextMeshProUGUI goldText;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -114,8 +120,7 @@ public class LoadGameManager : IntEventInvoker
             }
             GameObject towerAttackObject;
 
-            GameObject towerAttackObject = Instantiate(towerPrefab, position, Quaternion.identity);
-            if (towerAttackSave.TowerType == "Archery")
+            /*if (towerAttackSave.TowerType == "Archery")
             {
                 if (towerAttackSave.Level == 1)
                     towerAttackObject = Instantiate(archeryTowerLevel1, position, Quaternion.identity);
@@ -153,8 +158,7 @@ public class LoadGameManager : IntEventInvoker
             {
                 // Handle or log an error for unknown tower type, or provide some default behavior
                 Debug.LogError("Unknown tower type: " + towerAttackSave.TowerType);
-            }
-
+            }*/
 
         }
         string stringGold = PlayerPrefs.GetString("GoldSave");
