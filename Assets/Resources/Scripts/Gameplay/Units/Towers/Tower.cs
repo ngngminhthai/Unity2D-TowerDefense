@@ -47,12 +47,12 @@ namespace Assets.Scripts.Gameplay.Units.Defenders
             if (MonsterTargetClickManager.SelectedMonster != null && MonsterTargetClickManager.SelectedMonster == monster)
             {
                 AttackSelectedMonster(collision);
-                Debug.Log("Attack target monster");
+                //Debug.Log("Attack target monster");
             }
             // else, follow original behaviors
             else
             {
-                Debug.Log("Attack others monster");
+               // Debug.Log("Attack others monster");
 
                 if (TowerModeAttackManager.Mode == 1)
                     AttackMonsterWithLowestHitPoint(collision);

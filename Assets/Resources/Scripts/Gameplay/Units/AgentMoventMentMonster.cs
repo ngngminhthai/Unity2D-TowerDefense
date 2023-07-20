@@ -83,28 +83,28 @@ namespace Assets.Scripts.Gameplay.Units
                     countTimeFire = 0f;
                     attacker.TakeDamage(2f);
                 }
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
-                if (colliders.Length > 0)
-                    foreach (Collider2D collider in colliders)
-                    {
-                        if (collider.gameObject.CompareTag("attackers"))
-                        {
-                            GameObject attacker = collider.gameObject;
-                            if (triggeredAttackers.Contains(attacker))
-                            {
-                                return; // Đã kích hoạt rồi, không thực hiện gì nữa
-                            }
-                            AgentMoventMentMonster unit = collider.GetComponent<AgentMoventMentMonster>();
-                            if (unit != null && unit.isFire == 0)
-                            {
-                                unit.FireAction(2, 10f, prefabFire);
-                                //var animation = GameObject.Instantiate(rangeAnimation, gameObject.transform.position, Quaternion.identity);
-                                //Tower.colliders.Remove(collider.gameObject);
-                                //OnDrawGizmosSelected();
-                            }
-                            triggeredAttackers.Add(attacker);
-                        }
-                    }
+                //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+                //if (colliders.Length > 0)
+                //    foreach (Collider2D collider in colliders)
+                //    {
+                //        if (collider.gameObject.CompareTag("attackers"))
+                //        {
+                //            GameObject attacker = collider.gameObject;
+                //            if (triggeredAttackers.Contains(attacker))
+                //            {
+                //                return; // Đã kích hoạt rồi, không thực hiện gì nữa
+                //            }
+                //            AgentMoventMentMonster unit = collider.GetComponent<AgentMoventMentMonster>();
+                //            if (unit != null && unit.isFire == 0)
+                //            {
+                //                unit.FireAction(2, 10f, prefabFire);
+                //                //var animation = GameObject.Instantiate(rangeAnimation, gameObject.transform.position, Quaternion.identity);
+                //                //Tower.colliders.Remove(collider.gameObject);
+                //                //OnDrawGizmosSelected();
+                //            }
+                //            triggeredAttackers.Add(attacker);
+                //        }
+                //    }
 
             }
 
@@ -160,16 +160,14 @@ namespace Assets.Scripts.Gameplay.Units
 
         public GameObject FireAction(float Damage, float duration, GameObject effectPrefab)
         {
-            if (agent != null && !isSlowed)
-            {
+           
                 attacker.TakeDamage(Damage);
                 isFire = 1;
                 GameObject fire = Instantiate(effectPrefab, transform.position, Quaternion.identity);
                 fire.transform.parent = transform;
                 StartCoroutine(ResetAfterTime(duration, fire));
                 return fire;
-            }
-            return null;
+      
         }
 
         public void AdjustSpeed(float speed, float duration)
