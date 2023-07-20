@@ -7,7 +7,7 @@ public class Frame : MonoBehaviour
     // Start is called before the first frame update
     
     public float healingRate = 2;
-    public float radius = 2f;
+    public float radius = 0.5f;
     Timer timer;
 
 
