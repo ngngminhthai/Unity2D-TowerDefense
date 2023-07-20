@@ -131,6 +131,15 @@ public class ManageInfor : MonoBehaviour
     public static float GhostHitPointPer = 0.6f;
     public static float GhostSpeedPer = 0.1f;
 
+    // Boss
+    public static float BossRange = 3f;
+    public static float BossBaseHitPoints = 140f;
+    public static float BossSelectedRange = 1.5f;
+    public static float BossDamage = 30f;
+    public static float BossDamagePer = 0.5f;
+    public static float BossHitPointPer = 1f;
+    public static float BossSpeedPer = 0.1f;
+
     // Tower
     public static float AOETowerDamage = 3f;
     public static float AOETowerCoolDown = 1f;
