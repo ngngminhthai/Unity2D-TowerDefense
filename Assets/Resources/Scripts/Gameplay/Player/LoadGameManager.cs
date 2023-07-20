@@ -13,7 +13,35 @@ public class LoadGameManager : MonoBehaviour
     public GameObject archeryPrefab;
 
     [SerializeField]
-    public GameObject towerPrefab;
+    public GameObject archeryTowerLevel1;
+
+    [SerializeField]
+    public GameObject archeryTowerLevel2;
+
+    [SerializeField]
+    public GameObject archeryTowerLevel3;
+
+    [SerializeField]
+    public GameObject mageTower1;
+
+    [SerializeField]
+    public GameObject mageTower2;
+
+    [SerializeField]
+    public GameObject mageTower3;
+
+    [SerializeField]
+    public GameObject AOETower1;
+
+    [SerializeField]
+    public GameObject AOETower2;
+
+    [SerializeField]
+    public GameObject AOETower3;
+
+    [SerializeField]
+    public GameObject milataryTower;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,12 +104,49 @@ public class LoadGameManager : MonoBehaviour
             {
                 Destroy(builderBaseCollider.gameObject);
             }
+            GameObject towerAttackObject;
 
-            GameObject towerAttackObject = Instantiate(towerPrefab, position, Quaternion.identity);
+            if (towerAttackSave.TowerType == "Archery")
+            {
+                if (towerAttackSave.Level == 1)
+                    towerAttackObject = Instantiate(archeryTowerLevel1, position, Quaternion.identity);
+                else if (towerAttackSave.Level == 2)
+                    towerAttackObject = Instantiate(archeryTowerLevel2, position, Quaternion.identity);
+                else
+                    towerAttackObject = Instantiate(archeryTowerLevel3, position, Quaternion.identity);
+            }
 
-            /*  // Assuming TowerInformation component is what you use to store tower details
-              TowerInformation towerAttackInfo = towerAttackObject.GetComponent<TowerInformation>();
-              towerAttackInfo.getLevel = towerAttackSave.Level;  // Assuming 'getLevel' is a public variable.*/
+            else if (towerAttackSave.TowerType == "Milatary")
+            {
+                towerAttackObject = Instantiate(milataryTower, position, Quaternion.identity);
+            }
+
+            else if (towerAttackSave.TowerType == "AOE")
+            {
+                if (towerAttackSave.Level == 1)
+                    towerAttackObject = Instantiate(AOETower1, position, Quaternion.identity);
+                else if (towerAttackSave.Level == 2)
+                    towerAttackObject = Instantiate(AOETower2, position, Quaternion.identity);
+                else
+                    towerAttackObject = Instantiate(AOETower3, position, Quaternion.identity);
+            }
+
+            else if (towerAttackSave.TowerType == "Mage")
+            {
+                if (towerAttackSave.Level == 1)
+                    towerAttackObject = Instantiate(mageTower1, position, Quaternion.identity);
+                else if (towerAttackSave.Level == 2)
+                    towerAttackObject = Instantiate(mageTower2, position, Quaternion.identity);
+                else
+                    towerAttackObject = Instantiate(mageTower3, position, Quaternion.identity);
+            }
+            else
+            {
+                // Handle or log an error for unknown tower type, or provide some default behavior
+                Debug.LogError("Unknown tower type: " + towerAttackSave.TowerType);
+            }
+
+
         }
 
     }
