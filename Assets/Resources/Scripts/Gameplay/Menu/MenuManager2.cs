@@ -10,17 +10,19 @@ public class MenuManager2 : MonoBehaviour
 
     GameObject TowerModeBtn;
 
-
+  
     void Start()
     {
+      
         TowerModeBtn = GameObject.Find("Text Button Tower Mode");
     }
 
     public void LoadShop()
     {
-        if (!canvas.gameObject.activeSelf)
+        if (!canvas.gameObject.activeSelf )
         {
             canvas.gameObject.SetActive(true);
+         
 
         }
 

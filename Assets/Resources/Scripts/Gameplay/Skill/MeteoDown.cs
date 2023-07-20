@@ -22,7 +22,7 @@ public class MeteoDown : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, targetPosition) > 2.5f)
+        if (Vector3.Distance(transform.position, targetPosition) > 2f)
         {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);

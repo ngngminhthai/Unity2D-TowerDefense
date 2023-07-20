@@ -17,11 +17,6 @@ public class HeadQuarter : Unit
     }
 
 
-
-
-
-
-
     public override void TakeDamage(float amount)
     {
         //Debug.Log("towertake");

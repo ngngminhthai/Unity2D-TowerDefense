@@ -10,14 +10,14 @@ public class MenuMainManagement : IntEventInvoker
 {
 
     public static bool isLoaded = false;
-
+    int gold;
     public void Start()
     {
-
+        int gold = 100;
         unityEvents.Add(EventName.ResetGold, new ResetGold());
         EventManager.AddInvoker(EventName.ResetGold, this);
         // checkgold
-
+        EventManager.AddListener(EventName.CheckGoldEvent,GetGold );
         //EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
     }
     public void ToResetGold(int value)
@@ -79,7 +79,7 @@ public class MenuMainManagement : IntEventInvoker
         // Task 34 : Xóa toàn b? d? li?u and new game 
         SceneManager.LoadScene("Menu");
     }
-    public void RestGame()
+    public void RestGame( int gold )
     {
         // Save game 
         List<ObjectSave> objectSavesDefender = new List<ObjectSave>(); // Defender
@@ -135,7 +135,7 @@ public class MenuMainManagement : IntEventInvoker
         //string gold = JsonConvert.SerializeObject();
 
         // Using PlayerPrefs
-
+        
         // Save Defender 
         PlayerPrefs.SetString("DefenderSave", jsonDefender);
         // Save Attacker
@@ -149,5 +149,8 @@ public class MenuMainManagement : IntEventInvoker
         //PlayerPrefs.SetString("Gold", jsonTowerAttack);
     }
 
-
+    public void GetGold(int value)
+    {
+        gold = value;
+    }
 }

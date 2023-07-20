@@ -14,7 +14,7 @@ public class MeteoArea : MonoBehaviour
 
     private List<GameObject> triggeredAttackers = new List<GameObject>();
 
-    int number;
+    
     void Start()
     {
 
@@ -40,10 +40,12 @@ public class MeteoArea : MonoBehaviour
         {
             //GameObject agent = other.gameObject;
             AgentMoventMentMonster agent = attacker.GetComponent<AgentMoventMentMonster>();
+            Unit unit = attacker.GetComponent<Unit>();
             //AgentMoventMent agent = other.GetComponent<AgentMoventMentMonster>();
 
             if (agent != null)
             {
+                float damage = unit.MaxHitPoint * 40 /100;
                 agent.FireAction(10, 10f, prefabFire);
 
               

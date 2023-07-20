@@ -5,19 +5,19 @@ using UnityEngine;
 public class HealDefender : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float maxHealth = 10;
+    
     public float healingRate = 2;
     public float radius = 1f;
     Timer timer;
 
-    private float currentHealth;
+   
 
     void Start()
     {
         timer = gameObject.AddComponent<Timer>();
         timer.Duration = 10;
         timer.Run();
-        currentHealth = maxHealth;
+        
         InvokeRepeating("HealObjects", 0.0f, 2f);
     }
 
@@ -30,7 +30,7 @@ public class HealDefender : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("defenders"))
             {
-                Debug.Log("x");
+                //Debug.Log("x");
                 Unit unit = collider.GetComponent<Unit>();
                 if (unit != null)
                 {

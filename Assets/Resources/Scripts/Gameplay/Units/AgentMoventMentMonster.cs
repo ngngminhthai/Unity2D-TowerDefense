@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Gameplay.Units.Defenders;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Assets.Scripts.Gameplay.Units
         public bool isSlowed;
 
         [SerializeField]
-        GameObject FireGameObject;
+        GameObject prefabFire;
 
 
         public int isFire;
@@ -27,7 +28,7 @@ namespace Assets.Scripts.Gameplay.Units
 
         NavMeshAgent agent;
 
-    
+
 
         Attacker attacker;
         private float countTimeFire = 0f;
@@ -82,8 +83,31 @@ namespace Assets.Scripts.Gameplay.Units
                     countTimeFire = 0f;
                     attacker.TakeDamage(2f);
                 }
-                
+                //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+                //if (colliders.Length > 0)
+                //    foreach (Collider2D collider in colliders)
+                //    {
+                //        if (collider.gameObject.CompareTag("attackers"))
+                //        {
+                //            GameObject attacker = collider.gameObject;
+                //            if (triggeredAttackers.Contains(attacker))
+                //            {
+                //                return; // Đã kích hoạt rồi, không thực hiện gì nữa
+                //            }
+                //            AgentMoventMentMonster unit = collider.GetComponent<AgentMoventMentMonster>();
+                //            if (unit != null && unit.isFire == 0)
+                //            {
+                //                unit.FireAction(2, 10f, prefabFire);
+                //                //var animation = GameObject.Instantiate(rangeAnimation, gameObject.transform.position, Quaternion.identity);
+                //                //Tower.colliders.Remove(collider.gameObject);
+                //                //OnDrawGizmosSelected();
+                //            }
+                //            triggeredAttackers.Add(attacker);
+                //        }
+                //    }
+
             }
+
 
 
 
@@ -136,16 +160,14 @@ namespace Assets.Scripts.Gameplay.Units
 
         public GameObject FireAction(float Damage, float duration, GameObject effectPrefab)
         {
-            if (agent != null && !isSlowed)
-            {
+           
                 attacker.TakeDamage(Damage);
                 isFire = 1;
                 GameObject fire = Instantiate(effectPrefab, transform.position, Quaternion.identity);
                 fire.transform.parent = transform;
                 StartCoroutine(ResetAfterTime(duration, fire));
                 return fire;
-            }
-            return null;
+      
         }
 
         public void AdjustSpeed(float speed, float duration)
@@ -166,7 +188,7 @@ namespace Assets.Scripts.Gameplay.Units
             yield return new WaitForSeconds(delay);
 
             // Reset the speed of the monster to original
-          ;
+            ;
             isFire = 0;
 
             // Destroy the poison GameObject
@@ -207,6 +229,6 @@ namespace Assets.Scripts.Gameplay.Units
                 agent.speed = originalSpeed;
             }
         }
-       
+
     }
 }
