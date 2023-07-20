@@ -65,7 +65,7 @@ public class Freeze : MonoBehaviour
         }
         else if (other.CompareTag("defenders"))
         {
-            Debug.Log("def");
+            //Debug.Log("def");
             AgentMoventMent agent = other.GetComponent<AgentMoventMent>();
 
             if (agent != null)
@@ -80,8 +80,7 @@ public class Freeze : MonoBehaviour
             }
 
 
-            // Xử lý tương tác khi đối tượng đi qua trigger
-            Debug.Log("Object entered the trigger:");
+           // Debug.Log("Object entered the trigger:");
         }
     }
     private void OnTriggerExit2D(Collider2D other)

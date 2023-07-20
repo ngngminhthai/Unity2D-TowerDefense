@@ -2,6 +2,7 @@ using Assets.Scripts.Gameplay;
 using Assets.Scripts.Gameplay.Units;
 using Assets.Scripts.Gameplay.Units.Defenders;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,14 +12,14 @@ public class MenuMainManagement : IntEventInvoker
 
     public static bool isLoaded = false;
     int gold;
-
+    public static int map;
     public void Start()
     {
         int gold = 100;
         unityEvents.Add(EventName.ResetGold, new ResetGold());
         EventManager.AddInvoker(EventName.ResetGold, this);
         // checkgold
-        EventManager.AddListener(EventName.CheckGoldEvent,GetGold );
+        EventManager.AddListener(EventName.CheckGoldEvent, GetGold);
         //EventManager.AddListener(EventName.CheckGoldEvent,ResetGold );
     }
     public void ToResetGold(int value)
@@ -35,14 +36,17 @@ public class MenuMainManagement : IntEventInvoker
     }
     public void Map1()
     {
-        SceneManager.LoadScene("Map"); 
+        map = 1;
+        SceneManager.LoadScene("Map");
     }
     public void Map2()
     {
+        map = 2;
         SceneManager.LoadScene("DesertMap");
     }
     public void Map3()
     {
+        map = 3;
         SceneManager.LoadScene("FrozenMap");
     }
 
@@ -50,7 +54,23 @@ public class MenuMainManagement : IntEventInvoker
     {
         //LoadSavedGame();
         isLoaded = true;
-        SceneManager.LoadScene("map");
+      
+        switch (map)
+        {
+            case 1:
+                SceneManager.LoadScene("map");
+                break;
+            case 2:
+                SceneManager.LoadScene("DesertMap");
+                break;
+            case 3:
+                SceneManager.LoadScene("FrozenMap");
+                break;
+
+            default:
+                SceneManager.LoadScene("map");
+                break;
+        }
         Tower.colliders.Clear();
     }
 
@@ -92,7 +112,7 @@ public class MenuMainManagement : IntEventInvoker
         // Task 34 : Xóa toàn b? d? li?u and new game 
         SceneManager.LoadScene("Menu");
     }
-    public void RestGame(  )
+    public void RestGame()
     {
         // Save game 
         List<ObjectSave> objectSavesDefender = new List<ObjectSave>(); // Defender
@@ -145,7 +165,7 @@ public class MenuMainManagement : IntEventInvoker
         string jsonTowerAttack = JsonConvert.SerializeObject(objectSavesTowerAttack);
         string jsonGold = JsonConvert.SerializeObject(gold.ToString());
         // Using PlayerPrefs
-        
+
         // Save Defender 
         PlayerPrefs.SetString("DefenderSave", jsonDefender);
         // Save Attacker
