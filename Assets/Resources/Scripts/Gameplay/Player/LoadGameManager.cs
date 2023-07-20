@@ -17,16 +17,13 @@ public class LoadGameManager :  IntEventInvoker
 
     [SerializeField]
     public GameObject towerPrefab;
-    [SerializeField]
-    TextMeshProUGUI goldText;
+    //[SerializeField]
+    //TextMeshProUGUI goldText;
     // Start is called before the first frame update
     private void Awake()
     {
         unityEvents.Add(EventName.ResetGold, new ResetGold());
         EventManager.AddInvoker(EventName.ResetGold, this);
-
-        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
-        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
     }
     void Start()
     {
@@ -106,7 +103,7 @@ public class LoadGameManager :  IntEventInvoker
        int intGold = int.Parse(JsonConvert.DeserializeObject<string>(stringGold));
 
         unityEvents[EventName.ResetGold].Invoke(intGold);
-        goldText.text = "Gold : " + intGold;
+       // goldText.text = "Gold : " + intGold;
     }
 
 }
