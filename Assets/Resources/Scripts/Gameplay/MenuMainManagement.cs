@@ -155,7 +155,7 @@ public class MenuMainManagement : IntEventInvoker
         for (int i = 0; i < TowerAttackList.Length; i++)
         {
             TowerInformation towerAttack = TowerAttackList[i].GetComponent<TowerInformation>();
-            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel });
+            objectSavesTowerAttack.Add(new ObjectSaveTowerAttack { X = towerAttack.transform.position.x, Y = towerAttack.transform.position.y, Level = towerAttack.getLevel, UnitType = towerAttack.getType });
         }
 
         // Serialize the list of objects into a Json string 

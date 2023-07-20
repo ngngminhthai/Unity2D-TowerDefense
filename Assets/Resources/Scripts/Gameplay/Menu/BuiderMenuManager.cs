@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class BuiderMenuManager : IntEventInvoker
 {
-    [SerializeField]
-    TextMeshProUGUI goldText;
+   
     [SerializeField]
     public Canvas canvas;
     //[SerializeField]
@@ -34,7 +33,8 @@ public class BuiderMenuManager : IntEventInvoker
     Button btnBuyMage;
     [SerializeField]
     Button btnBuyAOE;
-
+    [SerializeField]
+    Button btnBuyMili;
     //[SerializeField]
     //Button btnUpdateArchery;
     //[SerializeField]
@@ -48,7 +48,8 @@ public class BuiderMenuManager : IntEventInvoker
 
     [SerializeField]
     GameObject prefabArcheryTower;
-
+    [SerializeField]
+    GameObject prefabMiliTower;
 
     private TowerFactory _towerFactory;
 
@@ -124,7 +125,7 @@ public class BuiderMenuManager : IntEventInvoker
     {
         unityEvents[EventName.GoldChangeEvent].Invoke(-80);
         NonAttackTower tower = _towerFactory.GetNonAttackTower("Milatary");
-        tower.Create(buildPosition, prefabAOETower);
+        tower.Create(buildPosition, prefabMiliTower);
         canvas.gameObject.SetActive(false);
         DestroyBuilderBase();
     }
@@ -150,12 +151,14 @@ public class BuiderMenuManager : IntEventInvoker
             btnBuyAOE.interactable = false;
             btnBuyArchery.interactable = false;
             btnBuyMage.interactable = false;
+            btnBuyMili.interactable = false;
         }
         else
         {
             btnBuyAOE.interactable = true;
             btnBuyArchery.interactable = true;
             btnBuyMage.interactable = true;
+            btnBuyMili.interactable = true;
         }
     }
 }
