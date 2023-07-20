@@ -32,6 +32,18 @@ public class MenuMainManagement : IntEventInvoker
 
         SceneManager.LoadScene("map");
     }
+    public void Map1()
+    {
+        SceneManager.LoadScene("Mapthuan"); 
+    }
+    public void Map2()
+    {
+        SceneManager.LoadScene("DesertMap");
+    }
+    public void Map3()
+    {
+        SceneManager.LoadScene("FrozenMap");
+    }
 
     public void ContinueButtonOnClickEvent()
     {
