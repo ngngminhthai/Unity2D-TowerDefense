@@ -98,7 +98,7 @@ public class ManageInfor : MonoBehaviour
     public static float HappyRange = 3f;
     public static float HappyBaseHitPoints = 20f;
     public static float HarpySelectedRange = 1.5f;
-    public static float HarpyDamage = 5f;
+    public static float HarpyDamage = 20f;
     public static float HarpyDamagePer = 0.5f;
     public static float HarpyHitpointsPer = 0.5f;
     public static float HarpySpeedPer = 0.1f;
