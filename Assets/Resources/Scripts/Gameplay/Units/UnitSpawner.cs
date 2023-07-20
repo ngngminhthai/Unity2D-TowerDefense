@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Gameplay.Units;
+﻿using Assets.Resources.Scripts.Gameplay.Units.Attackers;
+using Assets.Scripts.Gameplay.Units;
 using Assets.Scripts.Gameplay.Units.Attackers;
 using System;
 using System.Collections;
@@ -26,7 +27,7 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField]
     GameObject prefabGhost; 
     [SerializeField]
-    GameObject preafabBoss;
+    GameObject prefabBoss;
     //[SerializeField]
     //TextMeshProUGUI countWave;
     public int StrengthPerWave { get; set; }
@@ -90,9 +91,15 @@ public class UnitSpawner : MonoBehaviour
         AccumStrength = 0;
         while (true)
         {
-            if (TriggerCondition())
+            if (CountWave == 3)
             {
-
+                GameObject Instance = GenerateUnit(prefabBoss);
+                attackersQueue.Enqueue(Instance);
+                Boss boss = Instance.GetComponent<Boss>();
+                boss.level = level;
+                boss.Start();
+                StrengthPerUnit = (boss.Damage + boss.HitPoints / 2) + (1 + boss.Speed / 3);
+                break;
             }
             else
             {
