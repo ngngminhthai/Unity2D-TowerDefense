@@ -11,6 +11,7 @@ public class MenuMainManagement : IntEventInvoker
 
     public static bool isLoaded = false;
     int gold;
+
     public void Start()
     {
         int gold = 100;
@@ -142,10 +143,7 @@ public class MenuMainManagement : IntEventInvoker
         string jsonAttacker = JsonConvert.SerializeObject(objectSavesAttracker);
         string jsonTower = JsonConvert.SerializeObject(objectSaveTower);
         string jsonTowerAttack = JsonConvert.SerializeObject(objectSavesTowerAttack);
-
-
-        //string gold = JsonConvert.SerializeObject();
-
+        string jsonGold = JsonConvert.SerializeObject(gold.ToString());
         // Using PlayerPrefs
         
         // Save Defender 
@@ -156,9 +154,8 @@ public class MenuMainManagement : IntEventInvoker
         PlayerPrefs.SetString("TowerSave", jsonTower);
         // Save Tower Attack
         PlayerPrefs.SetString("TowerAttackSave", jsonTowerAttack);
-
-        // Save Gold
-        //PlayerPrefs.SetString("Gold", jsonTowerAttack);
+        //save gold
+        PlayerPrefs.SetString("GoldSave", jsonGold);
     }
 
     public void GetGold(int value)

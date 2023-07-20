@@ -37,7 +37,7 @@ namespace Assets.Scripts.Gameplay.Units
             CoolDown = 1;
             BaseDamage = ManageInfor.HarpyDamage;
             BaseHitPoints = ManageInfor.HappyBaseHitPoints;
-            BaseSpeed = 15;
+           
 
             Initialize(ManageInfor.HarpyDamagePer, ManageInfor.HarpyHitpointsPer, 0.1f);
         }

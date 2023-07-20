@@ -1,10 +1,13 @@
 using Assets.Scripts.Gameplay;
 using Assets.Scripts.Gameplay.Units;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class LoadGameManager : MonoBehaviour
+public class LoadGameManager :  IntEventInvoker
 {
     [SerializeField]
     public GameObject warrionPrefab;
@@ -13,18 +16,28 @@ public class LoadGameManager : MonoBehaviour
     public GameObject archeryPrefab;
 
     [SerializeField]
-    public GameObject towerPrefab;
+    TextMeshProUGUI goldText;
     // Start is called before the first frame update
     void Start()
     {
+
         if (MenuMainManagement.isLoaded)
         {
             LoadSavedGame();
             MenuMainManagement.isLoaded = false;
         }
+        unityEvents.Add(EventName.ResetGold, new ResetGold());
+        EventManager.AddInvoker(EventName.ResetGold, this);
+
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+
+
     }
     public void LoadSavedGame()
     {
+        unityEvents[EventName.ResetGold].Invoke(0);
+       
         // Load Defender data
         string jsonDefender = PlayerPrefs.GetString("DefenderSave");
         List<ObjectSave> objectSaves = JsonConvert.DeserializeObject<List<ObjectSave>>(jsonDefender);
@@ -84,6 +97,10 @@ public class LoadGameManager : MonoBehaviour
               towerAttackInfo.getLevel = towerAttackSave.Level;  // Assuming 'getLevel' is a public variable.*/
         }
 
+        int intGold = Int32.Parse(PlayerPrefs.GetString("GoldSave"));
+        unityEvents[EventName.GoldChangeEvent].Invoke(-intGold);
+
+        goldText.text = "Gold : " + intGold;
     }
 
 }
