@@ -131,6 +131,9 @@ public class MenuMainManagement : IntEventInvoker
         string jsonTower = JsonConvert.SerializeObject(objectSaveTower);
         string jsonTowerAttack = JsonConvert.SerializeObject(objectSavesTowerAttack);
 
+
+        //string gold = JsonConvert.SerializeObject();
+
         // Using PlayerPrefs
 
         // Save Defender 
@@ -141,6 +144,9 @@ public class MenuMainManagement : IntEventInvoker
         PlayerPrefs.SetString("TowerSave", jsonTower);
         // Save Tower Attack
         PlayerPrefs.SetString("TowerAttackSave", jsonTowerAttack);
+
+        // Save Gold
+        //PlayerPrefs.SetString("Gold", jsonTowerAttack);
     }
 
 

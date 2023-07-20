@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,9 +26,14 @@ public static class AudioManager
     /// <param name="source">audio source</param>
     public static void Initialize(AudioSource source)
     {
+        if (source == null)
+        {
+            throw new ArgumentNullException(nameof(source), "Provided AudioSource is null");
+        }
+
         initialized = true;
         audioSource = source;
-        audioClips.Add(AudioClipName.BurgerDamage, 
+        audioClips.Add(AudioClipName.BurgerDamage,
             Resources.Load<AudioClip>("BurgerDamage"));
         audioClips.Add(AudioClipName.BurgerDeath,
             Resources.Load<AudioClip>("BurgerDeath"));
@@ -50,6 +55,24 @@ public static class AudioManager
     /// <param name="name">name of the audio clip to play</param>
     public static void Play(AudioClipName name)
     {
+        if (!initialized)
+        {
+            Debug.LogError("AudioManager not initialized.");
+            return;
+        }
+
+        if (!audioClips.TryGetValue(name, out AudioClip clip))
+        {
+            Debug.LogError($"AudioClip with name '{name}' not found.");
+            return;
+        }
+
+        if (clip == null)
+        {
+            Debug.LogError($"AudioClip '{name}' is null.");
+            return;
+        }
+
         audioSource.PlayOneShot(audioClips[name]);
     }
 }

@@ -7,7 +7,7 @@ public class ManageInfor : MonoBehaviour
     public static float ArcheryHitpointsPer = 0.45f;
 
 
-    public static float ArcheryRange = 3f;
+    public static float ArcheryRange = 10f;
     public static float ArcheryRelectedRange = 0.5f;
     public static float ArcheryDefautDamage = 7f;
     public static float ArcheryDefautHitpoint = 40f;
@@ -155,7 +155,7 @@ public class ManageInfor : MonoBehaviour
 
     public static void Reset()
     {
-       // Gold.TotalGold = 100;
+        // Gold.TotalGold = 100;
 
         ArcheryDamage = 7f;
         ArcheryHitPoint = 40;

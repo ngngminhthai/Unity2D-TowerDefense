@@ -11,6 +11,9 @@ public class LoadGameManager : MonoBehaviour
 
     [SerializeField]
     public GameObject archeryPrefab;
+
+    [SerializeField]
+    public GameObject towerPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +48,42 @@ public class LoadGameManager : MonoBehaviour
             else
                 defenderObject = Instantiate(warrionPrefab, position, Quaternion.identity);
 
-            // Truoc kia
-            // defenderObject.GetComponent<Defender>().HitPoints = obj.Health;
+
+            defenderObject.GetComponent<Defender>().HitPoints = obj.Health;
+            defenderObject.GetComponent<Defender>().MaxHitPoint = ManageInfor.WarriorHitPoint;
+
+
+            /*            defenderObject.GetComponent<Defender>().HitPoints = 1;
+            */
+            /*// Truoc kia
+            defenderObject.GetComponent<Unit>().BaseHitPoints = 1;
 
             // Moi Fix :
-            defenderObject.GetComponent<Defender>().healthBar.SetHealth(obj.Health);
+            defenderObject.GetComponent<Unit>().healthBar.SetHealth(1);
+            //Debug.Log(defenderObject.GetComponent<Defender>().HitPoints);*/
         }
+
+        string jsonTowerAttack = PlayerPrefs.GetString("TowerAttackSave");
+        List<ObjectSaveTowerAttack> towerAttacks = JsonConvert.DeserializeObject<List<ObjectSaveTowerAttack>>(jsonTowerAttack);
+
+        foreach (ObjectSaveTowerAttack towerAttackSave in towerAttacks)
+        {
+            Vector3 position = new Vector3(towerAttackSave.X, towerAttackSave.Y, 0);
+
+            // Check for BuilderBase at the position
+            Collider2D builderBaseCollider = Physics2D.OverlapCircle(position, 0.1f);  // assuming a small radius for overlap check
+            if (builderBaseCollider != null && builderBaseCollider.CompareTag("BuilderBase"))
+            {
+                Destroy(builderBaseCollider.gameObject);
+            }
+
+            GameObject towerAttackObject = Instantiate(towerPrefab, position, Quaternion.identity);
+
+            /*  // Assuming TowerInformation component is what you use to store tower details
+              TowerInformation towerAttackInfo = towerAttackObject.GetComponent<TowerInformation>();
+              towerAttackInfo.getLevel = towerAttackSave.Level;  // Assuming 'getLevel' is a public variable.*/
+        }
+
     }
 
 }
