@@ -9,7 +9,7 @@ namespace Assets.Scripts.Gameplay.Units.Towers
         [SerializeField]
         GameObject warrionUnit;
 
-        int level = 1;
+        public int level = 1;
 
         private float summonCooldown = 4.0f;
         private int summonedUnits = 0;
