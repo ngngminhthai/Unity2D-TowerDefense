@@ -16,6 +16,9 @@ public class TowerInformation : MonoBehaviour
 
     [SerializeField]
     public  GameObject BuiderBase;
+
+    [SerializeField]
+    public string type; 
     void Start()
     {
         
@@ -27,5 +30,6 @@ public class TowerInformation : MonoBehaviour
         
     }
 
+    public string getType { get { return type; } }
     public int getLevel { get { return level; } }
 }

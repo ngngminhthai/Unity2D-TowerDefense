@@ -11,5 +11,6 @@ namespace Assets.Scripts.Gameplay.Units
         public float X { get; set; }
         public float Y { get; set; }
         public int Level { get; set; }
+        public string UnitType { get; set; }
     }
 }
