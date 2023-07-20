@@ -35,7 +35,7 @@ public class MenuMainManagement : IntEventInvoker
     }
     public void Map1()
     {
-        SceneManager.LoadScene("Mapthuan"); 
+        SceneManager.LoadScene("Map"); 
     }
     public void Map2()
     {
@@ -92,7 +92,7 @@ public class MenuMainManagement : IntEventInvoker
         // Task 34 : Xóa toàn b? d? li?u and new game 
         SceneManager.LoadScene("Menu");
     }
-    public void RestGame( int gold )
+    public void RestGame(  )
     {
         // Save game 
         List<ObjectSave> objectSavesDefender = new List<ObjectSave>(); // Defender

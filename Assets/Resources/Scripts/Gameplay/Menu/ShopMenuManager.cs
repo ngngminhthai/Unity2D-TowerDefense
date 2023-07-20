@@ -50,7 +50,7 @@ public class ShopMenuManager : IntEventInvoker
     Button btnUpdateXena; 
     void Start()
     {
-        goldText.text = "Gold: 100";
+        
         priceArchery.text = "Price: " + RoundFloat(ManageInfor.ArcheryStrength);
         priceWarrior.text = "Price: " + RoundFloat(ManageInfor.WarriorStrength);
         priceXena.text = "Price: " + RoundFloat(ManageInfor.XenaStrength); 
@@ -62,9 +62,14 @@ public class ShopMenuManager : IntEventInvoker
         // checkgold
 
         EventManager.AddListener(EventName.CheckGoldEvent, DisableButton);
-        //goldText.text = "Gold: 100";
-    }
 
+        //goldText.text = "Gold: 100";
+        Invoke("startFunction", 0f);
+    }
+    public void startFunction()
+    {
+        unityEvents[EventName.GoldChangeEvent].Invoke(0);
+    }
     public void ExitMenu()
     {
         canvas.gameObject.SetActive(false);

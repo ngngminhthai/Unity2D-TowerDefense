@@ -16,8 +16,18 @@ public class LoadGameManager :  IntEventInvoker
     public GameObject archeryPrefab;
 
     [SerializeField]
+    public GameObject towerPrefab;
+    [SerializeField]
     TextMeshProUGUI goldText;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        unityEvents.Add(EventName.ResetGold, new ResetGold());
+        EventManager.AddInvoker(EventName.ResetGold, this);
+
+        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
+        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+    }
     void Start()
     {
 
@@ -26,17 +36,13 @@ public class LoadGameManager :  IntEventInvoker
             LoadSavedGame();
             MenuMainManagement.isLoaded = false;
         }
-        unityEvents.Add(EventName.ResetGold, new ResetGold());
-        EventManager.AddInvoker(EventName.ResetGold, this);
-
-        unityEvents.Add(EventName.GoldChangeEvent, new GoldChangeEvent());
-        EventManager.AddInvoker(EventName.GoldChangeEvent, this);
+        
 
 
     }
     public void LoadSavedGame()
     {
-        unityEvents[EventName.ResetGold].Invoke(0);
+       
        
         // Load Defender data
         string jsonDefender = PlayerPrefs.GetString("DefenderSave");
@@ -90,16 +96,16 @@ public class LoadGameManager :  IntEventInvoker
                 Destroy(builderBaseCollider.gameObject);
             }
 
-            GameObject towerAttackObject = Instantiate(towerPrefab, position, Quaternion.identity);
+           GameObject towerAttackObject = Instantiate(towerPrefab, position, Quaternion.identity);
 
             /*  // Assuming TowerInformation component is what you use to store tower details
               TowerInformation towerAttackInfo = towerAttackObject.GetComponent<TowerInformation>();
               towerAttackInfo.getLevel = towerAttackSave.Level;  // Assuming 'getLevel' is a public variable.*/
         }
+        string stringGold = PlayerPrefs.GetString("GoldSave");
+       int intGold = int.Parse(JsonConvert.DeserializeObject<string>(stringGold));
 
-        int intGold = Int32.Parse(PlayerPrefs.GetString("GoldSave"));
-        unityEvents[EventName.GoldChangeEvent].Invoke(-intGold);
-
+        unityEvents[EventName.ResetGold].Invoke(intGold);
         goldText.text = "Gold : " + intGold;
     }
 
