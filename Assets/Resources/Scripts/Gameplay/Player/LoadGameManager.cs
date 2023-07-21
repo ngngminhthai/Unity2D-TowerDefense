@@ -120,7 +120,7 @@ public class LoadGameManager : IntEventInvoker
             }
             GameObject towerAttackObject;
 
-            /*if (towerAttackSave.TowerType == "Archery")
+            if (towerAttackSave.UnitType == "Archery")
             {
                 if (towerAttackSave.Level == 1)
                     towerAttackObject = Instantiate(archeryTowerLevel1, position, Quaternion.identity);
@@ -130,12 +130,12 @@ public class LoadGameManager : IntEventInvoker
                     towerAttackObject = Instantiate(archeryTowerLevel3, position, Quaternion.identity);
             }
 
-            else if (towerAttackSave.TowerType == "Milatary")
+            else if (towerAttackSave.UnitType == "")
             {
                 towerAttackObject = Instantiate(milataryTower, position, Quaternion.identity);
             }
 
-            else if (towerAttackSave.TowerType == "AOE")
+            else if (towerAttackSave.UnitType == "AOE")
             {
                 if (towerAttackSave.Level == 1)
                     towerAttackObject = Instantiate(AOETower1, position, Quaternion.identity);
@@ -145,7 +145,7 @@ public class LoadGameManager : IntEventInvoker
                     towerAttackObject = Instantiate(AOETower3, position, Quaternion.identity);
             }
 
-            else if (towerAttackSave.TowerType == "Mage")
+            else if (towerAttackSave.UnitType == "Mage")
             {
                 if (towerAttackSave.Level == 1)
                     towerAttackObject = Instantiate(mageTower1, position, Quaternion.identity);
@@ -157,8 +157,8 @@ public class LoadGameManager : IntEventInvoker
             else
             {
                 // Handle or log an error for unknown tower type, or provide some default behavior
-                Debug.LogError("Unknown tower type: " + towerAttackSave.TowerType);
-            }*/
+                Debug.LogError("Unknown tower type: " + towerAttackSave.UnitType);
+            }
 
         }
         string stringGold = PlayerPrefs.GetString("GoldSave");
